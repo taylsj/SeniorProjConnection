@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="520.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.seniorproject1.Controller">
+   <left>
+      <AnchorPane prefHeight="407.0" prefWidth="228.0" style="-fx-background-color: #263F73;" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="31.0" layoutY="44.0" text="Game World" textFill="WHITE">
+               <font>
+                  <Font name="Verdana Bold" size="24.0" />
+               </font>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </Label>
+            <Label layoutX="74.0" layoutY="95.0" text="Group 1" textFill="WHITE">
+               <font>
+                  <Font name="Verdana Bold" size="18.0" />
+               </font>
+            </Label>
+            <Line endX="100.0" layoutX="114.0" layoutY="81.0" startX="-100.0" strokeWidth="2.0">
+               <effect>
+                  <DropShadow />
+               </effect>
+            </Line>
+            <Circle fill="DODGERBLUE" layoutX="115.0" layoutY="232.0" radius="100.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fill="DODGERBLUE" layoutX="99.0" layoutY="232.0" radius="68.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fill="DODGERBLUE" layoutX="93.0" layoutY="232.0" radius="41.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fill="#d7bc0d" layoutX="93.0" layoutY="232.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fill="#d6860f" layoutX="52.0" layoutY="232.0" radius="12.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fill="#8d7554" layoutX="113.0" layoutY="300.0" radius="12.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fill="#0f83bd" layoutX="190.0" layoutY="169.0" radius="19.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fill="#a4a4a4" layoutX="190.0" layoutY="132.0" radius="11.0" stroke="BLACK" strokeType="INSIDE" />
+            <Label layoutX="18.0" layoutY="361.0" text="Copyright (c). All Rights Reserved" textFill="WHITE" />
+         </children>
+      </AnchorPane>
+   </left>
+   <right>
+      <AnchorPane prefHeight="400.0" prefWidth="332.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="79.0" layoutY="49.0" prefHeight="35.0" prefWidth="213.0" text="Secure Login">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Label>
+            <Label layoutX="32.0" layoutY="110.0" text="Username">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="34.0" layoutY="167.0" text="Password">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="usernameTextField" layoutX="111.0" layoutY="108.0" promptText="Username" />
+            <PasswordField fx:id="passwordPasswordField" layoutX="111.0" layoutY="164.0" promptText="Password" />
+            <Button fx:id="loginButton" layoutX="38.0" layoutY="236.0" mnemonicParsing="false" onAction="#loginButtonOnAction" prefHeight="30.0" prefWidth="214.0" style="-fx-background-color: #263F73;" text="Login" textFill="WHITE" />
+            <Button fx:id="cancelButton" layoutX="39.0" layoutY="283.0" mnemonicParsing="false" onAction="#cancelButtonOnAction" prefHeight="30.0" prefWidth="214.0" style="-fx-background-color: #263F73;" text="Cancel" textFill="WHITE" />
+            <Label fx:id="loginMessageLabel" alignment="CENTER" layoutX="32.0" layoutY="84.0" prefHeight="18.0" prefWidth="229.0" textFill="RED" />
+         </children>
+      </AnchorPane>
+   </right>
+</BorderPane>
