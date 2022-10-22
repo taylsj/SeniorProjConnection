@@ -1,9 +1,15 @@
 package com.example.seniorproject1;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.stage.Stage;
+
+import java.io.IOException;
+import java.sql.*;
 
 public class DatabaseConnection {
     public Connection databaseLink;
@@ -34,6 +40,9 @@ public class DatabaseConnection {
         return databaseLink;
 */
     }
+
+
+
 }
 
 

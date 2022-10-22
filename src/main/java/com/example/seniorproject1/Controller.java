@@ -2,17 +2,20 @@ package com.example.seniorproject1;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
-import javafx.scene.control.TextField;
-import javafx.scene.control.PasswordField;
+import javafx.stage.Window;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
 public class Controller {
+
     @FXML
     private Button cancelButton;
     @FXML
@@ -21,14 +24,30 @@ public class Controller {
     private TextField usernameTextField;
     @FXML
     private PasswordField passwordPasswordField;
+    @FXML
+    private Hyperlink signUpLink;
+
+    @FXML
+    private Hyperlink loginLink;
+
+    @FXML
+    private Button signUpButton;
+
+    @FXML
+    private TextField tf_username;
 
 
-    public void loginButtonOnAction(ActionEvent e ) {
+
+    public void loginButtonOnAction(ActionEvent e ) throws Exception {
         loginMessageLabel.setText("You tried to login");
 
         if (usernameTextField.getText().isBlank() == false && passwordPasswordField.getText().isBlank() == false) {
             //loginMessageLabel.setText("You tried to login");
             validateLogin();
+            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("logged-in.fxml"));
+            Stage window = (Stage) signUpLink.getScene().getWindow();
+            window.setScene(new Scene(fxmlLoader.load(),830, 590));
+
         } else {
             loginMessageLabel.setText("Please enter username and password");
         }
@@ -38,6 +57,56 @@ public class Controller {
         Stage stage = (Stage) cancelButton.getScene().getWindow();
         stage.close();
     }
+
+    public void signUpLinkOnAction(ActionEvent e) throws Exception {
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("sign-up.fxml"));
+        Stage window = (Stage) signUpLink.getScene().getWindow();
+        window.setScene(new Scene(fxmlLoader.load(),830, 590));
+
+    }
+
+
+
+    public void loginLinkOnAction(ActionEvent e) throws Exception {
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("login1.fxml"));
+        Stage window = (Stage) loginLink.getScene().getWindow();
+        window.setScene(new Scene(fxmlLoader.load(),830, 590));
+
+    }
+
+    public void signUpButtonOnAction(ActionEvent e) {
+
+        /*
+        DatabaseConnection connectNow = new DatabaseConnection();
+        Connection connectDB = connectNow.getConnection();
+
+
+
+
+        try {
+            String sql = "INSERT INTO UserInfo VALUES(?,?,?,?)";
+
+            Statement  statement = connectDB.createStatement(sql);
+            statement.setString(1,tf_username.getText());
+            ResultSet queryResult = statement.executeQuery(sql);
+
+
+            while(queryResult.next()) {
+                if (queryResult.getInt(1) == 1) {
+                    loginMessageLabel.setText("Welcome");
+                } else {
+                    loginMessageLabel.setText("Invalid login please try again");
+                }
+            }
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+
+         */
+
+    }
+
 
     public void validateLogin() {
         DatabaseConnection connectNow = new DatabaseConnection();
@@ -62,6 +131,9 @@ public class Controller {
             e.printStackTrace();
         }
     }
+
+
+
     /*
     public void validateLogin1() {
         DataConnector connectNow = new DataConnector();
