@@ -1,20 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.seniorproject1.Controller">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.seniorproject1.Controller">
    <children>
-      <Label fx:id="label_welcome" layoutX="120.0" layoutY="41.0" prefHeight="124.0" prefWidth="408.0" text="Welcome! ">
+      <ImageView fitHeight="590.0" fitWidth="830.0">
+         <image>
+            <Image url="@BackgroundGif.gif" />
+         </image>
+      </ImageView>
+      <Label fx:id="label_welcome" layoutX="120.0" layoutY="41.0" prefHeight="124.0" prefWidth="408.0" text="Welcome! " textFill="WHITE">
          <font>
-            <Font size="41.0" />
+            <Font size="66.0" />
          </font>
       </Label>
-      <Button fx:id="button_logout" layoutX="184.0" layoutY="224.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="252.0" text="Logout">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font>
-      </Button>
    </children>
 </AnchorPane>

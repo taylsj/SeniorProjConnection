@@ -34,7 +34,29 @@ public class Controller {
     private Button signUpButton;
 
     @FXML
+    private TextField tf_firstname;
+
+    @FXML
+    private TextField tf_lastname;
+
+    @FXML
+    private TextField tf_email;
+
+    @FXML
+    private PasswordField tf_password;
+
+    @FXML
+    private PasswordField tf_password1;
+
+    @FXML
+    private Label registrationMessageLabel;
+
+    @FXML
+    private Label loginMessageLabel1;
+
+    @FXML
     private TextField tf_username;
+
 
 
 
@@ -44,9 +66,7 @@ public class Controller {
         if (usernameTextField.getText().isBlank() == false && passwordPasswordField.getText().isBlank() == false) {
             //loginMessageLabel.setText("You tried to login");
             validateLogin();
-            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("logged-in.fxml"));
-            Stage window = (Stage) signUpLink.getScene().getWindow();
-            window.setScene(new Scene(fxmlLoader.load(),830, 590));
+
 
         } else {
             loginMessageLabel.setText("Please enter username and password");
@@ -76,34 +96,57 @@ public class Controller {
 
     public void signUpButtonOnAction(ActionEvent e) {
 
-        /*
+        // Check to see if the passwords match
+        if(tf_password.getText().equals(tf_password1.getText())) {
+            loginMessageLabel1.setText("");
+        } else {
+            loginMessageLabel1.setText("Password does not match !");
+        }
+
+
+
         DatabaseConnection connectNow = new DatabaseConnection();
         Connection connectDB = connectNow.getConnection();
 
+        String firstname = tf_firstname.getText();
+        String lastname = tf_lastname.getText();
+        String email = tf_email.getText();
+        String username = tf_username.getText();
+        String password = tf_password.getText();
 
-
+        String insertFields = "INSERT INTO UserInfo (lastName, firstName, email, userName, userPass) VALUES ('";
+        String insertValues = firstname + "','" + lastname + "','" + email + "','" + username + "','" + password + "')";
+        String insertToRegister = insertFields + insertValues;
 
         try {
-            String sql = "INSERT INTO UserInfo VALUES(?,?,?,?)";
+            Statement statement = connectDB.createStatement();
+            statement.executeUpdate(insertToRegister);
 
-            Statement  statement = connectDB.createStatement(sql);
-            statement.setString(1,tf_username.getText());
-            ResultSet queryResult = statement.executeQuery(sql);
+            registrationMessageLabel.setText("User registered successfully!");
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            ex.getCause();
+        }
 
 
-            while(queryResult.next()) {
-                if (queryResult.getInt(1) == 1) {
-                    loginMessageLabel.setText("Welcome");
-                } else {
-                    loginMessageLabel.setText("Invalid login please try again");
-                }
-            }
+
+
+
+
+        /*
+        try {
+            Statement  statement = connectDB.createStatement();
+            statement (1,tf_username.getText());
+            ResultSet queryResult = statement.executeQuery(query);
+
 
         } catch (Exception ex) {
             ex.printStackTrace();
         }
-
          */
+
+
+
 
     }
 
@@ -121,7 +164,9 @@ public class Controller {
 
             while(queryResult.next()) {
                 if (queryResult.getInt(1) == 1) {
-                    loginMessageLabel.setText("Welcome");
+                    FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("logged-in.fxml"));
+                    Stage window = (Stage) signUpLink.getScene().getWindow();
+                    window.setScene(new Scene(fxmlLoader.load(),830, 590));
                 } else {
                     loginMessageLabel.setText("Invalid login please try again");
                 }
