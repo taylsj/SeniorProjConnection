@@ -12,50 +12,44 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="520.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.seniorproject1.Controller">
-   <left>
-      <AnchorPane prefHeight="590.0" prefWidth="810.0" style="-fx-background-color: #263F73;">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="593.0" prefWidth="502.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.seniorproject1.Controller">
+   <center>
+      <AnchorPane prefHeight="592.0" prefWidth="502.0" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fitHeight="590.0" fitWidth="926.0" layoutX="-20.0">
+            <ImageView fitHeight="599.0" fitWidth="508.0" layoutX="-1.0" layoutY="-54.0">
                <image>
                   <Image url="@BackgroundGif.gif" />
                </image>
             </ImageView>
-         </children>
-      </AnchorPane>
-   </left>
-   <right>
-      <AnchorPane prefHeight="400.0" prefWidth="332.0" AnchorPane.rightAnchor="150.0" BorderPane.alignment="CENTER">
-         <children>
-            <Hyperlink fx:id="signUpLink" layoutX="116.0" layoutY="200.0" onAction="#signUpLinkOnAction" text="Sign Up" textFill="WHITE">
+            <Hyperlink fx:id="signUpLink" layoutX="213.0" layoutY="239.0" onAction="#signUpLinkOnAction" text="Sign Up" textFill="WHITE">
                <font>
                   <Font size="14.0" />
                </font>
             </Hyperlink>
-            <Label layoutX="68.0" layoutY="14.0" prefHeight="35.0" prefWidth="213.0" text="Login" textFill="WHITE">
+            <Label layoutX="165.0" layoutY="53.0" prefHeight="35.0" prefWidth="213.0" text="Login" textFill="WHITE">
                <font>
                   <Font name="System Bold Italic" size="53.0" />
                </font>
             </Label>
-            <Label layoutX="32.0" layoutY="110.0" text="Username" textFill="WHITE">
+            <Label layoutX="129.0" layoutY="149.0" text="Username" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </Label>
-            <Label layoutX="34.0" layoutY="167.0" text="Password" textFill="WHITE">
+            <Label layoutX="131.0" layoutY="206.0" text="Password" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </Label>
-            <TextField fx:id="usernameTextField" layoutX="111.0" layoutY="108.0" promptText="Username" />
-            <PasswordField fx:id="passwordPasswordField" layoutX="111.0" layoutY="164.0" promptText="Password" />
-            <Button fx:id="loginButton" layoutX="38.0" layoutY="236.0" mnemonicParsing="false" onAction="#loginButtonOnAction" prefHeight="30.0" prefWidth="214.0" style="-fx-background-color: #263F73;" text="Login" textFill="WHITE" />
-            <Button fx:id="cancelButton" layoutX="39.0" layoutY="283.0" mnemonicParsing="false" onAction="#cancelButtonOnAction" prefHeight="30.0" prefWidth="214.0" style="-fx-background-color: #263F73;" text="Cancel" textFill="WHITE" />
-            <Label fx:id="loginMessageLabel" alignment="CENTER" layoutX="32.0" layoutY="84.0" prefHeight="18.0" prefWidth="229.0" textFill="RED" />
+            <TextField fx:id="usernameTextField" layoutX="208.0" layoutY="147.0" promptText="Username" />
+            <PasswordField fx:id="passwordPasswordField" layoutX="208.0" layoutY="203.0" promptText="Password" />
+            <Button fx:id="loginButton" layoutX="135.0" layoutY="275.0" mnemonicParsing="false" onAction="#loginButtonOnAction" prefHeight="30.0" prefWidth="214.0" style="-fx-background-color: #263F73;" text="Login" textFill="WHITE" />
+            <Button fx:id="cancelButton" layoutX="136.0" layoutY="322.0" mnemonicParsing="false" onAction="#cancelButtonOnAction" prefHeight="30.0" prefWidth="214.0" style="-fx-background-color: #263F73;" text="Cancel" textFill="WHITE" />
+            <Label fx:id="loginMessageLabel" alignment="CENTER" layoutX="129.0" layoutY="123.0" prefHeight="18.0" prefWidth="229.0" textFill="RED" />
          </children>
          <BorderPane.margin>
-            <Insets right="240.0" top="50.0" />
+            <Insets top="50.0" />
          </BorderPane.margin>
       </AnchorPane>
-   </right>
+   </center>
 </BorderPane>
