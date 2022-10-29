@@ -56,11 +56,11 @@ public class Controller {
 
     @FXML
     private TextField tf_username;
+    @FXML
+    private Button switchToProfileButton;
 
 
-
-
-    public void loginButtonOnAction(ActionEvent e ) throws Exception {
+    public void loginButtonOnAction(ActionEvent e) throws Exception {
         loginMessageLabel.setText("You tried to login");
 
         if (usernameTextField.getText().isBlank() == false && passwordPasswordField.getText().isBlank() == false) {
@@ -81,28 +81,32 @@ public class Controller {
     public void signUpLinkOnAction(ActionEvent e) throws Exception {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("sign-up.fxml"));
         Stage window = (Stage) signUpLink.getScene().getWindow();
-        window.setScene(new Scene(fxmlLoader.load(),830, 590));
+        window.setScene(new Scene(fxmlLoader.load(), 830, 590));
 
     }
-
 
 
     public void loginLinkOnAction(ActionEvent e) throws Exception {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("login1.fxml"));
         Stage window = (Stage) loginLink.getScene().getWindow();
-        window.setScene(new Scene(fxmlLoader.load(),830, 590));
+        window.setScene(new Scene(fxmlLoader.load(), 830, 590));
 
+    }
+
+    public void switchToProfileOnAction(ActionEvent e) throws  Exception {
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("profilePage.fxml"));
+        Stage window = (Stage) switchToProfileButton.getScene().getWindow();
+        window.setScene(new Scene(fxmlLoader.load(), 1289, 913));
     }
 
     public void signUpButtonOnAction(ActionEvent e) {
 
         // Check to see if the passwords match
-        if(tf_password.getText().equals(tf_password1.getText())) {
+        if (tf_password.getText().equals(tf_password1.getText())) {
             loginMessageLabel1.setText("");
         } else {
             loginMessageLabel1.setText("Password does not match !");
         }
-
 
 
         DatabaseConnection connectNow = new DatabaseConnection();
@@ -133,18 +137,6 @@ public class Controller {
 
 
 
-        /*
-        try {
-            Statement  statement = connectDB.createStatement();
-            statement (1,tf_username.getText());
-            ResultSet queryResult = statement.executeQuery(query);
-
-
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
-         */
-
 
 
 
@@ -159,14 +151,14 @@ public class Controller {
         String verifyLogin = "SELECT count(1) From UserInfo WHERE Username = \'" + usernameTextField.getText() + "\' AND UserPass = \'" + passwordPasswordField.getText() + " \'";
 
         try {
-            Statement  statement = connectDB.createStatement();
+            Statement statement = connectDB.createStatement();
             ResultSet queryResult = statement.executeQuery(verifyLogin);
 
-            while(queryResult.next()) {
+            while (queryResult.next()) {
                 if (queryResult.getInt(1) == 1) {
                     FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("logged-in.fxml"));
                     Stage window = (Stage) signUpLink.getScene().getWindow();
-                    window.setScene(new Scene(fxmlLoader.load(),830, 590));
+                    window.setScene(new Scene(fxmlLoader.load(), 830, 590));
                 } else {
                     loginMessageLabel.setText("Invalid login please try again");
                 }
@@ -176,31 +168,7 @@ public class Controller {
             e.printStackTrace();
         }
     }
-
-
-
-    /*
-    public void validateLogin1() {
-        DataConnector connectNow = new DataConnector();
-
-
-        String verifyLogin = "SELECT count(1) From UserInfo WHERE Username = '" + usernameTextField.getText() + "' AND UserPass = ' " + passwordPasswordField.getText() + " '";
-
-        try {
-            Statement  statement = DataConnector.createStatement();
-            ResultSet queryResult = statement.executeQuery(verifyLogin);
-
-            while(queryResult.next()) {
-                if (queryResult.getInt(1) == 1) {
-                    loginMessageLabel.setText("Welcome");
-                } else {
-                    loginMessageLabel.setText("Invalid login please try again");
-                }
-            }
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-*/
 }
+
+
+
