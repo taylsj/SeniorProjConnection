@@ -6,9 +6,17 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.effect.DropShadow;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.scene.paint.ImagePattern;
+import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URL;
 import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -59,11 +67,51 @@ public class Controller  {
 
     @FXML
     private TextField tf_username;
+
+    @FXML
+    private Circle profilePic;
+
+    @FXML
+    private Button postButton;
+
+    @FXML
+    private Hyperlink signOutLink;
+
+    @FXML
+    private Button homeButton;
+
+    @FXML
+    private Button profileButton;
+
+    @FXML
+    private Button chatButton;
+
+    @FXML
+    private Button button_send;
+
+    @FXML
+    private TextField tf_message;
+
+    @FXML
+    private VBox vbox_messages;
+
+    @FXML
+    private Label userNameLabel1;
+
+    @FXML
+    private Label aboutMeUpdateLabel;
+
+    @FXML
+    private TextArea aboutMeTextArea;
+
+
     @FXML
     private Button switchToProfileButton;
 
-    private UserProfileModel instance = UserProfileModel.getInstance();
 
+    private UserLoggedInModel user = UserLoggedInModel.getInstance();
+
+    private DatabaseConnection dc = new DatabaseConnection();
 
 
     public void loginButtonOnAction(ActionEvent e) throws Exception {
@@ -79,6 +127,14 @@ public class Controller  {
         }
     }
 
+    public void chatButtonOnAction(ActionEvent e) throws Exception {
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("chatPage.fxml"));
+        Stage window = (Stage) chatButton.getScene().getWindow();
+        window.setScene(new Scene(fxmlLoader.load(),830, 590));
+
+    }
+
+
     public void cancelButtonOnAction(ActionEvent e) {
         Stage stage = (Stage) cancelButton.getScene().getWindow();
         stage.close();
@@ -91,6 +147,20 @@ public class Controller  {
 
     }
 
+    public void signOutLinkOnAction(ActionEvent e) throws Exception {
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("login1.fxml"));
+        Stage window = (Stage) signOutLink.getScene().getWindow();
+        window.setScene(new Scene(fxmlLoader.load(),830, 590));
+    }
+
+    public void profilePictureCircle (URL url, ResourceBundle rb) {
+        profilePic.setStroke(Color.SEAGREEN);
+        Image im = new Image("Jimmy.jpg",false);
+        profilePic.setFill(new ImagePattern(im));
+        profilePic.setEffect(new DropShadow(+25d, 0d, +2d, Color.DARKSEAGREEN));
+    }
+
+
 
     public void loginLinkOnAction(ActionEvent e) throws Exception {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("login1.fxml"));
@@ -98,6 +168,29 @@ public class Controller  {
         window.setScene(new Scene(fxmlLoader.load(), 830, 590));
 
     }
+
+    public void postButtonOnAction(ActionEvent e) throws Exception {
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("postPage.fxml"));
+        Stage window = (Stage) postButton.getScene().getWindow();
+        window.setScene(new Scene(fxmlLoader.load(),830, 590));
+
+    }
+
+    public void profileButtonOnAction(ActionEvent e) throws Exception {
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("profilePage.fxml"));
+        Stage window = (Stage) profileButton.getScene().getWindow();
+        window.setScene(new Scene(fxmlLoader.load(),830, 590));
+
+    }
+
+    public void homeButtonOnAction(ActionEvent e) throws Exception {
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("logged-in.fxml"));
+        Stage window = (Stage) homeButton.getScene().getWindow();
+        window.setScene(new Scene(fxmlLoader.load(),830, 590));
+
+    }
+
+
     @FXML
     public void switchToProfileOnAction(ActionEvent e) throws  Exception {
 

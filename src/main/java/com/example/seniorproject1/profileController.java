@@ -15,8 +15,9 @@ import javafx.scene.control.Label;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-
-
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.shape.Circle;
+import javafx.stage.Stage;
 
 
 public class profileController {
@@ -32,6 +33,46 @@ public class profileController {
     private Label aboutMeUpdateLabel;
     private UserProfileModel user = UserProfileModel.getInstance();
     private DatabaseConnection dc = new DatabaseConnection();
+
+    @FXML
+    private AnchorPane an_menu;
+
+    @FXML
+    private AnchorPane an_message;
+
+    @FXML
+    private Button homeButton;
+
+    @FXML
+    private Button postButton;
+
+    @FXML
+    private Button profileButton;
+
+    @FXML
+    private Circle profilePic;
+
+    @FXML
+    private Hyperlink signOutLink;
+
+    @FXML
+    private Label successMessageLabel;
+
+    @FXML
+    private TextField tf_favouriteGame;
+
+    @FXML
+    private TextField tf_gameGenre;
+
+    @FXML
+    private TextField tf_gameGenre1;
+
+    @FXML
+    private Button updateButton;
+
+    @FXML
+    private Button chatButton;
+
 
 /*
     public void initialize(URL url, ResourceBundle rb) {
@@ -63,13 +104,44 @@ public class profileController {
     }
 
 
-    public void logOut() throws IOException {
-        user = null;
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("login1.fxml"));
-        Scene window = new Scene(fxmlLoader.load(),502,593);
-        Main.mainStage.setScene(window);
-        Main.mainStage.show();
+    public void chatButtonOnAction(ActionEvent e) throws Exception {
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("chatPage.fxml"));
+        Stage window = (Stage) chatButton.getScene().getWindow();
+        window.setScene(new Scene(fxmlLoader.load(),830, 590));
+
     }
+
+
+    public void homeButtonOnAction(ActionEvent e) throws Exception {
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("logged-in.fxml"));
+        Stage window = (Stage) homeButton.getScene().getWindow();
+        window.setScene(new Scene(fxmlLoader.load(),830, 590));
+
+    }
+
+
+    public void postButtonOnAction(ActionEvent e) throws Exception {
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("postPage.fxml"));
+        Stage window = (Stage) postButton.getScene().getWindow();
+        window.setScene(new Scene(fxmlLoader.load(),830, 590));
+
+    }
+
+
+    public void profileButtonOnAction(ActionEvent e) throws Exception {
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("profilePage.fxml"));
+        Stage window = (Stage) profileButton.getScene().getWindow();
+        window.setScene(new Scene(fxmlLoader.load(),830, 590));
+
+    }
+
+
+    public void signOutLinkOnAction(ActionEvent e) throws Exception {
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("login1.fxml"));
+        Stage window = (Stage) signOutLink.getScene().getWindow();
+        window.setScene(new Scene(fxmlLoader.load(),830, 590));
+    }
+
 
 
 
