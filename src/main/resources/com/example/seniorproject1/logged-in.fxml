@@ -28,7 +28,7 @@
                   <Font name="System Bold" size="17.0" />
                </font>
             </Hyperlink>
-            <Label fx:id="userNameLabel1" alignment="CENTER" layoutX="58.0" layoutY="175.0" prefHeight="18.0" prefWidth="130.0" text="Mike1" textAlignment="CENTER" textFill="WHITE">
+            <Label fx:id="userNameLabel1" alignment="CENTER" layoutX="58.0" layoutY="175.0" prefHeight="18.0" prefWidth="130.0" text="AB" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font size="19.0" />
                </font>
