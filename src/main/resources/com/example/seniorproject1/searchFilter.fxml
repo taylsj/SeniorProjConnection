@@ -6,7 +6,6 @@
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
 <AnchorPane prefHeight="598.0" prefWidth="837.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.seniorproject1.searchFilterController">
    <children>
       <ListView fx:id="filterListView" layoutX="185.0" layoutY="64.0" prefHeight="471.0" prefWidth="589.0" />
@@ -15,6 +14,6 @@
       <Label layoutX="75.0" layoutY="110.0" text="Game" />
       <Label layoutX="66.0" layoutY="262.0" text="Platform" />
     <Button fx:id="resetButton" layoutX="58.0" layoutY="353.0" mnemonicParsing="false" onAction="#resetList" prefHeight="25.0" prefWidth="62.0" text="reset" />
-      <Button fx:id="backButton" layoutX="65.0" layoutY="408.0" mnemonicParsing="false" text="back" />
+      <Button fx:id="backButton" layoutX="65.0" layoutY="408.0" mnemonicParsing="false" onAction="#switchToLoggedInOnAction" text="back" />
    </children>
 </AnchorPane>

@@ -111,7 +111,6 @@ public class Controller  {
     private Button switchToSearchButton;
 
 
-    private UserLoggedInModel user = UserLoggedInModel.getInstance();
 
     private DatabaseConnection dc = new DatabaseConnection();
 

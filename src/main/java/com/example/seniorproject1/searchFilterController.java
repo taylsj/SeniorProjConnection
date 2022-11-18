@@ -4,7 +4,10 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
@@ -128,6 +131,16 @@ public class searchFilterController {
         }
         filterListView.setItems(obsList);
 
+
+
+    }
+
+    public void switchToLoggedInOnAction(ActionEvent e) throws  Exception {
+
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("logged-in.fxml"));
+        Scene window = new Scene(fxmlLoader.load(),1289,913);
+        Main.mainStage.setScene(window);
+        Main.mainStage.show();
 
 
     }

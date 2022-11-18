@@ -113,6 +113,13 @@ public class profileController {
         aboutMeTextArea.setText(temp);
     }
 
+    public void logOut() throws IOException {
+        user = null;
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("login1.fxml"));
+        Scene window = new Scene(fxmlLoader.load(),502,593);
+        Main.mainStage.setScene(window);
+        Main.mainStage.show();
+    }
 
     public void chatButtonOnAction(ActionEvent e) throws Exception {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("chatPage.fxml"));
