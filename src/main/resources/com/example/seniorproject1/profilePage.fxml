@@ -114,6 +114,11 @@
                   </HBox>
                </children>
             </VBox>
+            <Button mnemonicParsing="false" onAction="#switchToLoggedInOnAction" style="-fx-cursor: hand;" text="Home">
+               <VBox.margin>
+                  <Insets left="130.0" top="100.0" />
+               </VBox.margin>
+            </Button>
          </children>
       </VBox>
    </left>

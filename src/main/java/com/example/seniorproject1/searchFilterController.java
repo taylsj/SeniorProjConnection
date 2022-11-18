@@ -138,7 +138,7 @@ public class searchFilterController {
     public void switchToLoggedInOnAction(ActionEvent e) throws  Exception {
 
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("logged-in.fxml"));
-        Scene window = new Scene(fxmlLoader.load(),1289,913);
+        Scene window = new Scene(fxmlLoader.load(),830,590);
         Main.mainStage.setScene(window);
         Main.mainStage.show();
 

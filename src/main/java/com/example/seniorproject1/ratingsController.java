@@ -3,7 +3,10 @@ package com.example.seniorproject1;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 
@@ -77,6 +80,15 @@ public class ratingsController {
 
     }
 
+    public void switchToProfileOnAction(ActionEvent e) throws  Exception {
+
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("profilePage.fxml"));
+        Scene window = new Scene(fxmlLoader.load(),1289,913);
+        Main.mainStage.setScene(window);
+        Main.mainStage.show();
+
+
+    }
 
 
     public static void main(String [] args) {

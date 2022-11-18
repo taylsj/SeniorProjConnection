@@ -116,9 +116,19 @@ public class profileController {
     public void logOut() throws IOException {
         user = null;
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("login1.fxml"));
-        Scene window = new Scene(fxmlLoader.load(),502,593);
+        Scene window = new Scene(fxmlLoader.load(),888,599);
         Main.mainStage.setScene(window);
         Main.mainStage.show();
+    }
+
+    public void switchToLoggedInOnAction(ActionEvent e) throws  Exception {
+
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("logged-in.fxml"));
+        Scene window = new Scene(fxmlLoader.load(),830,590);
+        Main.mainStage.setScene(window);
+        Main.mainStage.show();
+
+
     }
 
     public void chatButtonOnAction(ActionEvent e) throws Exception {
