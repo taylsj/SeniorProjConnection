@@ -107,6 +107,8 @@ public class Controller  {
 
     @FXML
     private Button switchToProfileButton;
+    @FXML
+    private Button switchToSearchButton;
 
 
     private UserLoggedInModel user = UserLoggedInModel.getInstance();
@@ -201,6 +203,15 @@ public class Controller  {
 
 
     }
+
+    @FXML
+    public void switchToSearchOnAction(ActionEvent e) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("searchFilter.fxml"));
+        Scene window = new Scene(fxmlLoader.load(),1289,913);
+        Main.mainStage.setScene(window);
+        Main.mainStage.show();
+    }
+
 
     public void signUpButtonOnAction(ActionEvent e) {
 

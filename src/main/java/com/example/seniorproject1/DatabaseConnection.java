@@ -138,14 +138,254 @@ public class DatabaseConnection {
         } catch (SQLException e) {
         }
 
+
+
     }
-        public static void main(String [] args) {
+
+    public int getRatingLeader(int profID) {
+        int ans = -1;
+        ResultSet result = null;
+        try {
+            Statement stmt = conn.createStatement();
+            result = stmt.executeQuery("SELECT Leadership FROM Post WHERE profileID = \'" + profID + "\'");
+            while (result.next()) {
+                ans = result.getInt("Leadership");
+                System.out.println("Leadership = " + ans);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return ans;
+    }
+
+    public ResultSet getRatingLeaderList(int profID) {
+        int ans = -1;
+        ResultSet result = null;
+        try {
+            Statement stmt = conn.createStatement();
+            result = stmt.executeQuery("SELECT Leadership FROM Post WHERE profileID = \'" + profID + "\'");
+            while (result.next()) {
+                return result;
+                //ans = result.getInt("Leadership");
+                //System.out.println("Leadership = " + ans);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public int getRatingCommunication(int profID) {
+        int ans = -1;
+        ResultSet result = null;
+        try {
+            Statement stmt = conn.createStatement();
+            result = stmt.executeQuery("SELECT Communication FROM Post WHERE profileID = \'" + profID + "\'");
+            while (result.next()) {
+                ans = result.getInt("Communication");
+                System.out.println("Communication = " + ans);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return ans;
+    }
+
+    public ResultSet getRatingCommunicationList(int profID) {
+        int ans = -1;
+        ResultSet result = null;
+        try {
+            Statement stmt = conn.createStatement();
+            result = stmt.executeQuery("SELECT Communication FROM Post WHERE profileID = \'" + profID + "\'");
+            while (result.next()) {
+                //ans = result.getInt("Communication");
+                //System.out.println("Communication = " + ans);
+             return result;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+
+    }
+    public int getRatingStrategizing(int profID) {
+        int ans = -1;
+        ResultSet result = null;
+        try {
+            Statement stmt = conn.createStatement();
+            result = stmt.executeQuery("SELECT Strategizing FROM Post WHERE profileID = \'" + profID + "\'");
+            while (result.next()) {
+                ans = result.getInt("Strategizing");
+                System.out.println("Strategizing = " + ans);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return ans;
+    }
+
+    public ResultSet getRatingStrategizingList(int profID) {
+        int ans = -1;
+        ResultSet result = null;
+        try {
+            Statement stmt = conn.createStatement();
+            result = stmt.executeQuery("SELECT Strategizing FROM Post WHERE profileID = \'" + profID + "\'");
+            while (result.next()) {
+                return result;
+               // ans = result.getInt("Strategizing");
+               // System.out.println("Strategizing = " + ans);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public int getRatingConcentration(int profID) {
+        int ans = -1;
+        ResultSet result = null;
+        try {
+            Statement stmt = conn.createStatement();
+            result = stmt.executeQuery("SELECT Concentration FROM Post WHERE profileID = \'" + profID + "\'");
+            while (result.next()) {
+                ans = result.getInt("Concentration");
+                System.out.println("Concentration = " + ans);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return ans;
+    }
+
+    public ResultSet getRatingConcentrationList(int profID) {
+        int ans = -1;
+        ResultSet result = null;
+        try {
+            Statement stmt = conn.createStatement();
+            result = stmt.executeQuery("SELECT Concentration FROM Post WHERE profileID = \'" + profID + "\'");
+            while (result.next()) {
+                return result;
+                //ans = result.getInt("Concentration");
+                //System.out.println("Concentration = " + ans);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+    public int getRatingMultiTasking(int profID) {
+        int ans = -1;
+        ResultSet result = null;
+        try {
+            Statement stmt = conn.createStatement();
+            result = stmt.executeQuery("SELECT Multitasking FROM Post WHERE profileID = \'" + profID + "\'");
+            while (result.next()) {
+                ans = result.getInt("Multitasking");
+                System.out.println("Multitasking = " + ans);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return ans;
+    }
+
+    public ResultSet getRatingMultiTaskingList(int profID) {
+        int ans = -1;
+        ResultSet result = null;
+        try {
+            Statement stmt = conn.createStatement();
+            result = stmt.executeQuery("SELECT Multitasking FROM Post WHERE profileID = \'" + profID + "\'");
+            while (result.next()) {
+                return result;
+                //ans = result.getInt("Multitasking");
+                //System.out.println("Multitasking = " + ans);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public int getProfID(String un) {
+        int ans = -1;
+        ResultSet result = null;
+        try {
+            Statement stmt = conn.createStatement();
+            result = stmt.executeQuery("SELECT profileID FROM ProfileInfo WHERE profileName = \'" + un + "\'");
+            while (result.next()) {
+                ans = result.getInt("profileID");
+                System.out.println("profileID = " + ans);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return ans;
+    }
+
+    public ResultSet getAllFromPost() {
+        int ans = -1;
+        ResultSet result = null;
+        try {
+            Statement stmt = conn.createStatement();
+            result = stmt.executeQuery("SELECT * FROM Post");
+           //ResultSet x = result;
+            return result;
+            //return x;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public ResultSet getAllFromPostByPlatform(int platformID) {
+        int ans = -1;
+        ResultSet result = null;
+        try {
+            Statement stmt = conn.createStatement();
+            result = stmt.executeQuery("SELECT * FROM Post WHERE PlatformID = " + platformID);
+            //ResultSet x = result;
+            return result;
+            //return x;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public ResultSet getAllFromPostByGame(int gameID) {
+        int ans = -1;
+        ResultSet result = null;
+        try {
+            Statement stmt = conn.createStatement();
+            result = stmt.executeQuery("SELECT * FROM Post WHERE GameID = " + gameID);
+            //ResultSet x = result;
+            return result;
+            //return x;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+
+    public static void main(String [] args) {
     DatabaseConnection dc = new DatabaseConnection();
     dc.getConnection();
     int x = dc.getUserID("Mike1");
     //dc.getAboutMe(x);
     //System.out.println(dc.getAboutMe(8));
-    dc.insertProfile(1, 1, 1," ", "abc", 1, "hey");
+    //dc.insertProfile(1, 1, 1," ", "abc", 1, "hey");
+    int a = dc.getRatingLeader(12);
+    int b = dc.getRatingCommunication(12);
+    int c = dc.getRatingStrategizing(12);
+    int d = dc.getRatingConcentration(12);
+    int e = dc.getRatingMultiTasking(12);
+    int test = dc.getProfID("AB");
+    ResultSet test2 = dc.getAllFromPost();
+
 
     }
 

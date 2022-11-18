@@ -31,6 +31,8 @@ public class profileController {
     private TextArea aboutMeTextArea;
     @FXML
     private Label aboutMeUpdateLabel;
+    @FXML
+    private Button ratingsButton;
     private UserProfileModel user = UserProfileModel.getInstance();
     private DatabaseConnection dc = new DatabaseConnection();
 
@@ -93,6 +95,14 @@ public class profileController {
         }
 
 
+    }
+
+    @FXML
+    public void ratingButtonOnAction(ActionEvent e) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("ratingsPage.fxml"));
+        Scene window = new Scene(fxmlLoader.load(),1289,913);
+        Main.mainStage.setScene(window);
+        Main.mainStage.show();
     }
 
     @FXML
