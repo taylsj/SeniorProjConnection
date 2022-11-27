@@ -68,8 +68,7 @@ public class Controller  {
     @FXML
     private TextField tf_username;
 
-    @FXML
-    private Circle profilePic;
+
 
     @FXML
     private Button postButton;
@@ -111,8 +110,19 @@ public class Controller  {
     private Button switchToSearchButton;
 
 
+    @FXML
+    private Label userNameProfileLabel;
+
+
+
+
 
     private DatabaseConnection dc = new DatabaseConnection();
+
+    private UserProfileModel user = UserProfileModel.getInstance();
+
+
+
 
 
     public void loginButtonOnAction(ActionEvent e) throws Exception {
@@ -148,18 +158,6 @@ public class Controller  {
 
     }
 
-    public void signOutLinkOnAction(ActionEvent e) throws Exception {
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("login1.fxml"));
-        Stage window = (Stage) signOutLink.getScene().getWindow();
-        window.setScene(new Scene(fxmlLoader.load(),830, 590));
-    }
-
-    public void profilePictureCircle (URL url, ResourceBundle rb) {
-        profilePic.setStroke(Color.SEAGREEN);
-        Image im = new Image("Jimmy.jpg",false);
-        profilePic.setFill(new ImagePattern(im));
-        profilePic.setEffect(new DropShadow(+25d, 0d, +2d, Color.DARKSEAGREEN));
-    }
 
 
 
@@ -192,24 +190,8 @@ public class Controller  {
     }
 
 
-    @FXML
-    public void switchToProfileOnAction(ActionEvent e) throws  Exception {
-
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("profilePage.fxml"));
-        Scene window = new Scene(fxmlLoader.load(),1289,913);
-        Main.mainStage.setScene(window);
-        Main.mainStage.show();
 
 
-    }
-
-    @FXML
-    public void switchToSearchOnAction(ActionEvent e) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("searchFilter.fxml"));
-        Scene window = new Scene(fxmlLoader.load(),1289,913);
-        Main.mainStage.setScene(window);
-        Main.mainStage.show();
-    }
 
 
     public void signUpButtonOnAction(ActionEvent e) {
@@ -301,7 +283,7 @@ public class Controller  {
                     theUser.setUserName(usernameTextField.getText());
                     FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("logged-in.fxml"));
                     Stage window = (Stage) signUpLink.getScene().getWindow();
-                    window.setScene(new Scene(fxmlLoader.load(), 830, 590));
+                    window.setScene(new Scene(fxmlLoader.load(), 851, 638));
                 } else {
                     loginMessageLabel.setText("Invalid login please try again");
                 }

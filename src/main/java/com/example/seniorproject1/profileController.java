@@ -21,69 +21,22 @@ import javafx.stage.Stage;
 
 
 public class profileController {
-    @FXML
-    private ImageView profileImageView;
-    @FXML
-    private TextField aboutMeTextField;
+
     @FXML
     private Label userNameLabel;
     @FXML
     private TextArea aboutMeTextArea;
     @FXML
     private Label aboutMeUpdateLabel;
-    @FXML
-    private Button ratingsButton;
     private UserProfileModel user = UserProfileModel.getInstance();
     private DatabaseConnection dc = new DatabaseConnection();
-
     @FXML
-    private AnchorPane an_menu;
-
-    @FXML
-    private AnchorPane an_message;
-
-    @FXML
-    private Button homeButton;
-
-    @FXML
-    private Button postButton;
-
-    @FXML
-    private Button profileButton;
-
-    @FXML
-    private Circle profilePic;
-
-    @FXML
-    private Hyperlink signOutLink;
-
-    @FXML
-    private Label successMessageLabel;
-
-    @FXML
-    private TextField tf_favouriteGame;
-
-    @FXML
-    private TextField tf_gameGenre;
-
-    @FXML
-    private TextField tf_gameGenre1;
-
-    @FXML
-    private Button updateButton;
-
-    @FXML
-    private Button chatButton;
+    private Button changePasswordButton;
 
 
-/*
-    public void initialize(URL url, ResourceBundle rb) {
-        File profileFile = new File("Program%20Files%20(x86)/New%20folder/profilestatic.png");
-        Image profileImage = new Image(profileFile.toURI().toString());
-        profileImageView.setImage(profileImage);
 
-    }
-*/
+
+
     @FXML
     public void updateAboutMeButtonOnAction(ActionEvent e) {
         DatabaseConnection connectNow = new DatabaseConnection();
@@ -113,10 +66,10 @@ public class profileController {
         aboutMeTextArea.setText(temp);
     }
 
-    public void logOut() throws IOException {
+    public void signOutLinkOnAction() throws IOException {
         user = null;
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("login1.fxml"));
-        Scene window = new Scene(fxmlLoader.load(),888,599);
+        Scene window = new Scene(fxmlLoader.load(),830,590);
         Main.mainStage.setScene(window);
         Main.mainStage.show();
     }
@@ -124,50 +77,22 @@ public class profileController {
     public void switchToLoggedInOnAction(ActionEvent e) throws  Exception {
 
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("logged-in.fxml"));
-        Scene window = new Scene(fxmlLoader.load(),830,590);
+        Scene window = new Scene(fxmlLoader.load(),851,638);
         Main.mainStage.setScene(window);
         Main.mainStage.show();
 
 
     }
 
-    public void chatButtonOnAction(ActionEvent e) throws Exception {
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("chatPage.fxml"));
-        Stage window = (Stage) chatButton.getScene().getWindow();
-        window.setScene(new Scene(fxmlLoader.load(),830, 590));
+    public void changePasswordButtonOnAction (ActionEvent e) throws Exception {
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("changePasswordPage.fxml"));
+        Scene window = new Scene(fxmlLoader.load(),1289,913);
+        Main.mainStage.setScene(window);
+        Main.mainStage.show();
 
     }
 
 
-    public void homeButtonOnAction(ActionEvent e) throws Exception {
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("logged-in.fxml"));
-        Stage window = (Stage) homeButton.getScene().getWindow();
-        window.setScene(new Scene(fxmlLoader.load(),830, 590));
-
-    }
-
-
-    public void postButtonOnAction(ActionEvent e) throws Exception {
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("postPage.fxml"));
-        Stage window = (Stage) postButton.getScene().getWindow();
-        window.setScene(new Scene(fxmlLoader.load(),830, 590));
-
-    }
-
-
-    public void profileButtonOnAction(ActionEvent e) throws Exception {
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("profilePage.fxml"));
-        Stage window = (Stage) profileButton.getScene().getWindow();
-        window.setScene(new Scene(fxmlLoader.load(),830, 590));
-
-    }
-
-
-    public void signOutLinkOnAction(ActionEvent e) throws Exception {
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("login1.fxml"));
-        Stage window = (Stage) signOutLink.getScene().getWindow();
-        window.setScene(new Scene(fxmlLoader.load(),830, 590));
-    }
 
 
 
