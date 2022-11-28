@@ -105,7 +105,7 @@
                               <Image url="@../images/logout.png" />
                            </image>
                         </ImageView>
-                        <Button fx:id="logOutButton" mnemonicParsing="false" onAction="#logOut" prefHeight="39.0" prefWidth="169.0" style="-fx-background-color: transparent; -fx-cursor: hand;" text="Log Out" textFill="WHITE">
+                        <Button fx:id="logOutButton" mnemonicParsing="false" onAction="#signOutLinkOnAction" prefHeight="39.0" prefWidth="169.0" style="-fx-background-color: transparent; -fx-cursor: hand;" text="Log Out" textFill="WHITE">
                            <font>
                               <Font size="18.0" />
                            </font>
