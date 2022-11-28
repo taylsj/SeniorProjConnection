@@ -466,6 +466,35 @@ public class DatabaseConnection {
         return ans;
     }
 
+    public void insertPost(int profileID, int gameID, int platformID, String description, String comment) {
+        //call the getConnectionDB method
+        //getConnectionDB();
+       System.out.println("insertProfile method running...");
+        String tableName = "Post";
+        try {
+            String sql = "INSERT INTO " + tableName + " (ProfileID, GameID, PlatformID, Description, Comments )  VALUES"
+                    + "(?, ?, ?, ?, ?)";
+            //System.out.println("Prepared Statement = " + sql);
+            preparedStatement = conn.prepareStatement(sql);
+            preparedStatement.setInt(1, profileID);
+            preparedStatement.setInt(2, gameID);
+            preparedStatement.setInt(3, platformID);
+            //preparedStatement.setString(4, );
+            preparedStatement.setString(4, description);
+            preparedStatement.setString(5, comment);
+           // preparedStatement.setString(6, profileName);
+            int row = preparedStatement.executeUpdate();
+            System.out.println("Prepared Statement = " + preparedStatement.toString());
+            if (row > 0) {
+                System.out.println("**NEW Post inserted into table");
+            }
+        } catch (SQLException e) {
+        }
+
+
+
+    }
+
 
     public static void main(String [] args) {
     DatabaseConnection dc = new DatabaseConnection();

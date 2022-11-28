@@ -7,9 +7,11 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="638.0" prefWidth="851.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.seniorproject1.LoggedInPageController">
+<AnchorPane prefHeight="638.0" prefWidth="851.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.seniorproject1.LoggedInPageController">
    <children>
       <AnchorPane prefHeight="638.0" prefWidth="224.0" style="-fx-background-color: #311432;">
          <children>
@@ -23,11 +25,11 @@
                   <Font name="System Bold" size="26.0" />
                </font>
             </Label>
-            <Button fx:id="switchToProfileButton" layoutX="2.0" layoutY="334.0" mnemonicParsing="false" onAction="#switchToProfileOnAction" prefHeight="25.0" prefWidth="224.0" style="-fx-background-color: #702963;" text="Profile" textFill="WHITE">
+            <Button fx:id="switchToProfileButton" layoutY="334.0" mnemonicParsing="false" onAction="#switchToProfileOnAction" prefHeight="25.0" prefWidth="226.0" style="-fx-background-color: #702963;" text="Profile" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font></Button>
-            <Button layoutY="387.0" mnemonicParsing="false" onAction="#switchToProfileOnAction" prefHeight="25.0" prefWidth="224.0" style="-fx-background-color: #702963;" text="Post" textFill="WHITE">
+            <Button fx:id="switchToPostButton" layoutY="387.0" mnemonicParsing="false" onAction="#switchToPostOnAction" prefHeight="25.0" prefWidth="224.0" style="-fx-background-color: #702963;" text="Post" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font></Button>
@@ -42,15 +44,33 @@
             </Hyperlink>
          </children>
       </AnchorPane>
-      <ScrollPane layoutX="222.0" layoutY="-1.0" prefHeight="638.0" prefWidth="329.0">
+      <ScrollPane layoutX="222.0" layoutY="-1.0" prefHeight="638.0" prefWidth="364.0">
         <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="667.0" prefWidth="362.0" />
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="667.0" prefWidth="362.0">
+               <children>
+                  <Pane layoutX="5.0" layoutY="4.0" prefHeight="214.0" prefWidth="301.0">
+                     <children>
+                        <Text layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Call Of Duty" wrappingWidth="283.13671875">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Text>
+                        <Text layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="The is a great game that requires amazing set of skills to accomplish certain tasks. Can't wait for the new version of the game to comeout" wrappingWidth="282.5" />
+                     </children>
+                  </Pane>
+                  <Pane layoutX="5.0" layoutY="241.0" prefHeight="214.0" prefWidth="301.0">
+                     <children>
+                        <Text layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fortnite" wrappingWidth="283.13671875">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Text>
+                        <Text layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="The is a great game that requires amazing set of skills to accomplish certain tasks. Can't wait for the new version of the game to comeout" wrappingWidth="282.5" />
+                     </children>
+                  </Pane>
+               </children></AnchorPane>
         </content>
       </ScrollPane>
-      <ScrollPane layoutX="551.0" prefHeight="638.0" prefWidth="301.0">
-        <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="663.0" prefWidth="318.0" />
-        </content>
-      </ScrollPane>
+      <AnchorPane fx:id="an_content" layoutX="589.0" prefHeight="638.0" prefWidth="263.0" style="-fx-background-color: #784B84;" />
    </children>
 </AnchorPane>

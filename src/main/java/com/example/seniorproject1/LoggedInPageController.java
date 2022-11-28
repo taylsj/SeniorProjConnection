@@ -54,6 +54,16 @@ public class LoggedInPageController {
     }
 
     @FXML
+    public void switchToPostOnAction(ActionEvent e) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("postPage.fxml"));
+        Scene window = new Scene(fxmlLoader.load(),907,760);
+        Main.mainStage.setScene(window);
+        Main.mainStage.show();
+    }
+
+
+
+    @FXML
     public void initialize() {
         userNameProfileLabel.setText(user.getUserName());
         //dc.getConnection();
