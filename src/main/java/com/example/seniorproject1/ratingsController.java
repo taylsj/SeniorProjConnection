@@ -60,6 +60,7 @@ public class ratingsController {
         ResultSet result3 = dc.getRatingCommunicationList(pID);
         ResultSet result4 = dc.getRatingMultiTaskingList(pID);
         ResultSet result5 = dc.getRatingStrategizingList(pID);
+        ResultSet result6 = dc.getGameID(pID);
 
 
         obsList.add("Leadership\t\t Concentration\t\t Communication\t\t MultiTasking\t\t Strategizing");
@@ -69,11 +70,14 @@ public class ratingsController {
             int CommunicationRate = result3.getInt("Communication");
             int MultiTaskingRate = result4.getInt("MultiTasking");
             int StrategizingRate = result5.getInt("Strategizing");
-            obsList.add(LeaderRate + "\t\t\t\t " +  ConcentrationRate + "\t\t\t\t " +  CommunicationRate + "\t\t\t\t " + MultiTaskingRate + "\t\t\t\t " + StrategizingRate);
+            int gameID = result6.getInt("gameID");
+            obsList.add(LeaderRate + "\t\t\t\t " +  ConcentrationRate + "\t\t\t\t " +  CommunicationRate + "\t\t\t\t\t " + MultiTaskingRate +
+                    "\t\t\t\t " + StrategizingRate + "\t\t\t\tFor Post Playing: " + dc.getGameTitle(gameID));
             result2.next();
             result3.next();
             result4.next();
             result5.next();
+            result6.next();
         }
         while(result1.next());
         listViewRating.setItems(obsList);

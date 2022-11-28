@@ -370,6 +370,102 @@ public class DatabaseConnection {
         return null;
     }
 
+    public String getProfName(int id) {
+        String ans = " ";
+        ResultSet result = null;
+        try {
+            Statement stmt = conn.createStatement();
+            result = stmt.executeQuery("SELECT profileName FROM ProfileInfo  WHERE ProfileID = " + id);
+            while (result.next()) {
+                ans = result.getString("profileName");
+                System.out.println("profileName = " + ans);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return ans;
+    }
+
+    public int getPostID(int un) {
+        int ans = -1;
+        ResultSet result = null;
+        try {
+            Statement stmt = conn.createStatement();
+            result = stmt.executeQuery("SELECT postID FROM Post JOIN ProfileInfo ON ProfileInfo.profileID = Post.profileID WHERE ProfileInfo.profileID = \'" + un + "\'");
+            while (result.next()) {
+                ans = result.getInt("postID");
+                System.out.println("postID = " + ans);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return ans;
+    }
+
+    public String getGameTitle(int id) {
+        String ans = " ";
+        ResultSet result = null;
+        try {
+            Statement stmt = conn.createStatement();
+            result = stmt.executeQuery("SELECT gameTitle FROM Game WHERE gameID = \'" + id + "\'");
+            while (result.next()) {
+                ans = result.getString("gameTitle");
+                System.out.println("gameTitle = " + ans);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return ans;
+    }
+
+    public ResultSet getGameID(int un) {
+        int ans = -1;
+        ResultSet result = null;
+        try {
+            Statement stmt = conn.createStatement();
+            result = stmt.executeQuery("SELECT gameID FROM Post WHERE profileID = " + un);
+            while (result.next()) {
+                //ans = result.getInt("gameID");
+                return result;
+
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public boolean updatePassword(String userName, String newStr) {
+        try {
+            // String sql = "UPDATE" + t + " SET " + col + " =\'" + newStr + "\' WHERE profileName =\'" + userName + "\'";
+            String sql = "UPDATE UserInfo SET userPass = \'" + newStr + "\' WHERE userName = \'" + userName + "\'";
+
+            Statement stmt = conn.createStatement();
+            stmt.executeUpdate(sql);
+            System.out.println("Successfully Updated");
+            return true;
+        } catch (SQLException e) {
+            Logger.getLogger(DatabaseConnection.class.getName()).log(Level.SEVERE, null, e);
+        }
+        return false;
+    }
+
+    public String getCurrentPass(String un) {
+        String ans = " ";
+        ResultSet result = null;
+        try {
+            Statement stmt = conn.createStatement();
+            result = stmt.executeQuery("SELECT userPass FROM UserInfo WHERE userName = \'" + un + "\'");
+            while (result.next()) {
+                ans = result.getString("userPass");
+                System.out.println("userPass = " + ans);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return ans;
+    }
+
 
     public static void main(String [] args) {
     DatabaseConnection dc = new DatabaseConnection();
@@ -385,6 +481,11 @@ public class DatabaseConnection {
     int e = dc.getRatingMultiTasking(12);
     int test = dc.getProfID("AB");
     ResultSet test2 = dc.getAllFromPost();
+    String prof = dc.getProfName(3);
+    int f = dc.getPostID(15);
+    String game = dc.getGameTitle(2);
+    //int g = dc.getGameID(12);
+    String pass = dc.getCurrentPass("PassTest");
 
 
     }

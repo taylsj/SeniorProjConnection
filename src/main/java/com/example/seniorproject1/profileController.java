@@ -94,6 +94,16 @@ public class profileController {
 
 
 
+    public void switchToChangePass(ActionEvent e) throws  Exception {
+
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("changePassword.fxml"));
+        Scene window = new Scene(fxmlLoader.load(),600,400);
+        Main.mainStage.setScene(window);
+        Main.mainStage.show();
+
+
+    }
+
 
 
 

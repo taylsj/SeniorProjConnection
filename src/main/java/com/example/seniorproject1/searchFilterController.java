@@ -32,6 +32,7 @@ public class searchFilterController {
     ArrayList<String> gameList;
     ObservableList<String> obsList = FXCollections.observableArrayList();
     private DatabaseConnection dc = new DatabaseConnection();
+    private UserProfileModel user = UserProfileModel.getInstance();
 
 
 
@@ -91,12 +92,13 @@ public class searchFilterController {
     @FXML
     public void displayAllList() throws SQLException {
         ResultSet result = dc.getAllFromPost();
-        obsList.add("Description\t\t Comments");
+        obsList.add("\t\tDescription\t\t Comments");
         int i = 1;
         while(result.next()) {
             String comments = result.getString("Comments");
             String description = result.getString("Description");
-            obsList.add("Post " + i + ": " + description + "\t\t" + comments);
+            int id = result.getInt("ProfileID");
+            obsList.add("Post" + i + ":\t " + description + "\t\t" + comments + "\t\tBy User: " + dc.getProfName(id));
             i++;
         }
         filterListView.setItems(obsList);
@@ -107,12 +109,14 @@ public class searchFilterController {
 
     public void filterByPlatform(int platformID) throws SQLException {
         ResultSet result = dc.getAllFromPostByPlatform(platformID);
+        int i = 1;
         obsList.clear();
-        obsList.add("Comments\t\t Description");
+        obsList.add("\t\tComments\t\t Description");
         while(result.next()) {
             String comments = result.getString("Comments");
             String description = result.getString("Description");
-            obsList.add(comments + "\t\t" + description);
+            int id = result.getInt("ProfileID");
+            obsList.add("Post" + i + ":\t " + description + "\t\t" + comments + "\t\tBy User: " + dc.getProfName(id));
         }
         filterListView.setItems(obsList);
 
@@ -122,12 +126,14 @@ public class searchFilterController {
 
     public void filterByGame(int gameID) throws SQLException {
         ResultSet result = dc.getAllFromPostByGame(gameID);
+        int i = 1;
         obsList.clear();
-        obsList.add("Comments\t\t Description");
+        obsList.add("\t\tComments\t\t Description");
         while(result.next()) {
             String comments = result.getString("Comments");
             String description = result.getString("Description");
-            obsList.add(comments + "\t\t" + description);
+            int id = result.getInt("ProfileID");
+            obsList.add("Post" + i + ":\t " + description + "\t\t" + comments + "\t\tBy User: " + dc.getProfName(id));
         }
         filterListView.setItems(obsList);
 
