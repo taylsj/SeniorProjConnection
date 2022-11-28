@@ -63,7 +63,7 @@ public class ratingsController {
         ResultSet result6 = dc.getGameID(pID);
 
 
-        obsList.add("Leadership\t\t Concentration\t\t Communication\t\t MultiTasking\t\t Strategizing");
+        obsList.add("Leadership\t\t Concentration\t\t Communication\t\t MultiTasking\t\t Strategizing\t\tGame");
         do {
             int LeaderRate = result1.getInt("Leadership");
             int ConcentrationRate = result2.getInt("Concentration");
@@ -72,7 +72,7 @@ public class ratingsController {
             int StrategizingRate = result5.getInt("Strategizing");
             int gameID = result6.getInt("gameID");
             obsList.add(LeaderRate + "\t\t\t\t " +  ConcentrationRate + "\t\t\t\t " +  CommunicationRate + "\t\t\t\t\t " + MultiTaskingRate +
-                    "\t\t\t\t " + StrategizingRate + "\t\t\t\tFor Post Playing: " + dc.getGameTitle(gameID));
+                    "\t\t\t\t " + StrategizingRate + "\t\t\t\tFor Post Playing:  " + dc.getGameTitle(gameID));
             result2.next();
             result3.next();
             result4.next();

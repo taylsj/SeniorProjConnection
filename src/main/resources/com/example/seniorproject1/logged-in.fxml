@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="638.0" prefWidth="851.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.seniorproject1.LoggedInPageController">
+<AnchorPane prefHeight="638.0" prefWidth="851.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.seniorproject1.LoggedInPageController">
    <children>
       <AnchorPane prefHeight="638.0" prefWidth="224.0" style="-fx-background-color: #311432;">
          <children>
@@ -23,7 +23,7 @@
                   <Font name="System Bold" size="26.0" />
                </font>
             </Label>
-            <Button fx:id="switchToProfileButton" layoutX="2.0" layoutY="334.0" mnemonicParsing="false" onAction="#switchToProfileOnAction" prefHeight="25.0" prefWidth="224.0" style="-fx-background-color: #702963;" text="About Me" textFill="WHITE">
+            <Button fx:id="switchToProfileButton" layoutX="2.0" layoutY="334.0" mnemonicParsing="false" onAction="#switchToProfileOnAction" prefHeight="25.0" prefWidth="224.0" style="-fx-background-color: #702963;" text="Profile" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font></Button>

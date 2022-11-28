@@ -92,13 +92,14 @@ public class searchFilterController {
     @FXML
     public void displayAllList() throws SQLException {
         ResultSet result = dc.getAllFromPost();
-        obsList.add("\t\tDescription\t\t Comments");
+        obsList.add("\t\tDescription\t--\t Comments\t--\t User\t--\tGame");
         int i = 1;
         while(result.next()) {
             String comments = result.getString("Comments");
             String description = result.getString("Description");
             int id = result.getInt("ProfileID");
-            obsList.add("Post" + i + ":\t " + description + "\t\t" + comments + "\t\tBy User: " + dc.getProfName(id));
+            int game = result.getInt("gameID");
+            obsList.add("Post" + i + ":\t " + description + "\t--\t" + comments + "\t--\t" + "By User:  " + dc.getProfName(id) + "\t--\t" + "For game:  " + dc.getGameTitle(game));
             i++;
         }
         filterListView.setItems(obsList);
@@ -111,12 +112,12 @@ public class searchFilterController {
         ResultSet result = dc.getAllFromPostByPlatform(platformID);
         int i = 1;
         obsList.clear();
-        obsList.add("\t\tComments\t\t Description");
+        obsList.add("\t\tDescription\t--\t Comments\t--\t User");
         while(result.next()) {
             String comments = result.getString("Comments");
             String description = result.getString("Description");
             int id = result.getInt("ProfileID");
-            obsList.add("Post" + i + ":\t " + description + "\t\t" + comments + "\t\tBy User: " + dc.getProfName(id));
+            obsList.add("Post" + i + ":\t " + description + "\t--\t" + comments + "\t--\tBy User:  " + dc.getProfName(id));
         }
         filterListView.setItems(obsList);
 
@@ -128,12 +129,12 @@ public class searchFilterController {
         ResultSet result = dc.getAllFromPostByGame(gameID);
         int i = 1;
         obsList.clear();
-        obsList.add("\t\tComments\t\t Description");
+        obsList.add("\t\tDescription\t--\t Comments\t--\t User");
         while(result.next()) {
             String comments = result.getString("Comments");
             String description = result.getString("Description");
             int id = result.getInt("ProfileID");
-            obsList.add("Post" + i + ":\t " + description + "\t\t" + comments + "\t\tBy User: " + dc.getProfName(id));
+            obsList.add("Post" + i + ":\t " + description + "\t--\t" + comments + "\t--\tBy User:  " + dc.getProfName(id));
         }
         filterListView.setItems(obsList);
 
