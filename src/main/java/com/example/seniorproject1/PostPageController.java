@@ -35,22 +35,28 @@ public class PostPageController {
 
     @FXML
     private Button switchToSearchButton;
+    @FXML
+    private Button postButton;
+    @FXML
+    private Button switchToHomeButton;
 
     @FXML
     private Label userNamePostLabel;
 
     @FXML
-    private TextArea gameComments;
+    private TextArea commentsTextArea;
 
     @FXML
-    private TextArea gameSubject;
+    private TextArea descriptionTextArea;
+    @FXML
+    private Label confirmMessageLabel;
     //@FXML
    // private ComboBox gameComboBox;
     //@FXML
     //private ComboBox platformComboBox;
 
-    ArrayList<String> platformList;
-    ArrayList<String> gameList;
+  //  ArrayList<String> platformList;
+   // ArrayList<String> gameList;
     @FXML
     private ComboBox<String> gameComboBox;
     @FXML
@@ -84,12 +90,24 @@ public class PostPageController {
 
     }
 
+    @FXML
+    public void switchToLoggedInOnAction(ActionEvent e) throws  Exception {
+
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("logged-in.fxml"));
+        Scene window = new Scene(fxmlLoader.load(),851,638);
+        Main.mainStage.setScene(window);
+        Main.mainStage.show();
+
+
+    }
+
 
     @FXML
     public void initialize() {
-        userNamePostLabel.setText(user.getUserName());
+        //userNamePostLabel.setText(user.getUserName());
         dc.getConnection();
         setUpComboGame();
+        setUpComboPlatform();
         //dc.getConnection();
         //String temp = dc.getAboutMe(user.getUserName());
         //aboutMeTextArea.setText(temp);
@@ -105,12 +123,21 @@ public class PostPageController {
         Connection connectDB = connectNow.getConnection();
 
         int profileID = connectNow.getProfID(user.getUserName());
-        String comments = gameComments.getText();
-        String subject = gameSubject.getText();
-        String platformObj = getCombo();
+        //String comments = commentsTextArea.getText();
+        //String subject = descriptionTextArea.getText();
+        String platformObj = getComboPlatform();
+        String gameObj = getComboGame();
+        int platform = dc.getPlatformIDFromName(platformObj);
+        int game = dc.getGameIDFromName(gameObj);
+
+        try {
+            dc.insertPost(profileID, game, platform, descriptionTextArea.getText(), commentsTextArea.getText());
 
 
-        //connectNow.insertPost(profileID,  ,  , gameSubject.getText(), gameComments.getText() );
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+       confirmMessageLabel.setText("Post Added Successfully!");
 
 
 
@@ -118,14 +145,21 @@ public class PostPageController {
 
 
     }
-    private void setUpComboGame() {
+    private void setUpComboPlatform() {
         platformComboBox.getItems().addAll("PlayStation", "Xbox", "PC", "Nintendo Switch");
     }
 
-    private String getCombo(){
+    private String getComboPlatform(){
         return platformComboBox.getValue();
     }
 
+    private void setUpComboGame() {
+        gameComboBox.getItems().addAll("Fifa 23", "OverWatch", "Grand Theft Auto V", "Mario Kart 8");
+    }
+
+    private String getComboGame() {
+        return gameComboBox.getValue();
+    }
     /*
     private void setupComboBox(){
         platformList = new ArrayList<>(Arrays.asList("PlayStation", "Xbox", "PC", "Nintendo Switch"));

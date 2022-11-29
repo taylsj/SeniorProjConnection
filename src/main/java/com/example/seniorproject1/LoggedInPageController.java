@@ -1,5 +1,7 @@
 package com.example.seniorproject1;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -7,9 +9,12 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class LoggedInPageController {
 
@@ -28,6 +33,12 @@ public class LoggedInPageController {
 
     @FXML
     private Label userNameProfileLabel;
+    @FXML
+    private ListView homePostListView;
+
+    private DatabaseConnection dc = new DatabaseConnection();
+
+    ObservableList<String> obsList = FXCollections.observableArrayList();
 
     public void signOutLinkOnAction() throws IOException {
         user = null;
@@ -56,7 +67,7 @@ public class LoggedInPageController {
     @FXML
     public void switchToPostOnAction(ActionEvent e) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("postPage.fxml"));
-        Scene window = new Scene(fxmlLoader.load(),907,760);
+        Scene window = new Scene(fxmlLoader.load(),804,656);
         Main.mainStage.setScene(window);
         Main.mainStage.show();
     }
@@ -64,13 +75,31 @@ public class LoggedInPageController {
 
 
     @FXML
-    public void initialize() {
+    public void initialize() throws SQLException, IOException {
         userNameProfileLabel.setText(user.getUserName());
-        //dc.getConnection();
+        dc.getConnection();
+        displayAllUserPosts(dc.getProfID(user.getUserName()));
         //String temp = dc.getAboutMe(user.getUserName());
         //aboutMeTextArea.setText(temp);
     }
 
+    public void displayAllUserPosts(int profileID) throws IOException, SQLException {
+        ResultSet result = dc.getAllFromPostByUser(profileID);
+        int i = 1;
+        obsList.clear();
+        obsList.add("\t\tDescription\t--\t Comments");
+        while(result.next()) {
+            String comments = result.getString("Comments");
+            String description = result.getString("Description");
+            //int id = result.getInt("ProfileID");
+            obsList.add("Post" + i + ":\t " + description + "\t--\t" + comments);
+            i++;
+        }
+        homePostListView.setItems(obsList);
+
+
+
+    }
 
 
 }

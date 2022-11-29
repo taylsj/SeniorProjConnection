@@ -118,6 +118,7 @@ public class searchFilterController {
             String description = result.getString("Description");
             int id = result.getInt("ProfileID");
             obsList.add("Post" + i + ":\t " + description + "\t--\t" + comments + "\t--\tBy User:  " + dc.getProfName(id));
+            i++;
         }
         filterListView.setItems(obsList);
 
@@ -135,6 +136,7 @@ public class searchFilterController {
             String description = result.getString("Description");
             int id = result.getInt("ProfileID");
             obsList.add("Post" + i + ":\t " + description + "\t--\t" + comments + "\t--\tBy User:  " + dc.getProfName(id));
+            i++;
         }
         filterListView.setItems(obsList);
 
@@ -146,6 +148,16 @@ public class searchFilterController {
 
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("logged-in.fxml"));
         Scene window = new Scene(fxmlLoader.load(),851, 638);
+        Main.mainStage.setScene(window);
+        Main.mainStage.show();
+
+
+    }
+
+    public void switchToRatingsSearchOnAction(ActionEvent e) throws  Exception {
+
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("ratingSearch.fxml"));
+        Scene window = new Scene(fxmlLoader.load(),981, 733);
         Main.mainStage.setScene(window);
         Main.mainStage.show();
 

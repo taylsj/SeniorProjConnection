@@ -15,5 +15,7 @@
       <Label layoutX="66.0" layoutY="262.0" text="Platform" />
     <Button fx:id="resetButton" layoutX="58.0" layoutY="353.0" mnemonicParsing="false" onAction="#resetList" prefHeight="25.0" prefWidth="62.0" text="reset" />
       <Button fx:id="backButton" layoutX="65.0" layoutY="408.0" mnemonicParsing="false" onAction="#switchToLoggedInOnAction" text="back" />
+      <Button layoutX="63.0" layoutY="510.0" mnemonicParsing="false" onAction="#switchToRatingsSearchOnAction" text="Search" />
+      <Label alignment="CENTER" layoutX="11.0" layoutY="484.0" prefHeight="17.0" prefWidth="150.0" text="Search User Ratings:" />
    </children>
 </AnchorPane>

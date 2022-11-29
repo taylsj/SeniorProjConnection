@@ -469,7 +469,7 @@ public class DatabaseConnection {
     public void insertPost(int profileID, int gameID, int platformID, String description, String comment) {
         //call the getConnectionDB method
         //getConnectionDB();
-       System.out.println("insertProfile method running...");
+        System.out.println("insertPost method running...");
         String tableName = "Post";
         try {
             String sql = "INSERT INTO " + tableName + " (ProfileID, GameID, PlatformID, Description, Comments )  VALUES"
@@ -482,7 +482,7 @@ public class DatabaseConnection {
             //preparedStatement.setString(4, );
             preparedStatement.setString(4, description);
             preparedStatement.setString(5, comment);
-           // preparedStatement.setString(6, profileName);
+            // preparedStatement.setString(6, profileName);
             int row = preparedStatement.executeUpdate();
             System.out.println("Prepared Statement = " + preparedStatement.toString());
             if (row > 0) {
@@ -490,10 +490,72 @@ public class DatabaseConnection {
             }
         } catch (SQLException e) {
         }
-
-
-
     }
+        public int getPlatformIDFromName(String name) {
+            int ans = -1;
+            ResultSet result = null;
+            try {
+                Statement stmt = conn.createStatement();
+                result = stmt.executeQuery("SELECT platformID FROM Platform WHERE platformType = \'" + name + "\'");
+                while (result.next()) {
+                    ans = result.getInt("platformID");
+                    System.out.println("platformID = " + ans);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return ans;
+        }
+
+    public int getGameIDFromName(String name) {
+        int ans = -1;
+        ResultSet result = null;
+        try {
+            Statement stmt = conn.createStatement();
+            result = stmt.executeQuery("SELECT gameID FROM Game WHERE gameTitle = \'" + name + "\'");
+            while (result.next()) {
+                ans = result.getInt("gameID");
+                System.out.println("gameID = " + ans);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return ans;
+    }
+
+    public ResultSet getAllRatingFromPostByGame(int gameID) {
+        int ans = -1;
+        ResultSet result = null;
+        try {
+            Statement stmt = conn.createStatement();
+            result = stmt.executeQuery("SELECT Leadership, Communication, Strategizing, Concentration, MultiTasking FROM Post WHERE  gameID = " + gameID);
+            //ResultSet x = result;
+            return result;
+            //return x;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public ResultSet getAllFromPostByUser(int profileID) {
+        int ans = -1;
+        ResultSet result = null;
+        try {
+            Statement stmt = conn.createStatement();
+            result = stmt.executeQuery("SELECT * FROM Post WHERE profileID = " + profileID);
+            //ResultSet x = result;
+            return result;
+            //return x;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+
 
 
     public static void main(String [] args) {
@@ -515,6 +577,9 @@ public class DatabaseConnection {
     String game = dc.getGameTitle(2);
     //int g = dc.getGameID(12);
     String pass = dc.getCurrentPass("PassTest");
+    int g = dc.getPlatformIDFromName("PlayStation");
+    int h = dc.getGameIDFromName("OverWatch");
+    ResultSet test3 = dc.getAllRatingFromPostByGame(1);
 
 
     }
