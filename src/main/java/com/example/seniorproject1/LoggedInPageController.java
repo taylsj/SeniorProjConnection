@@ -39,6 +39,10 @@ public class LoggedInPageController {
     private Label gameMessageLabel;
     @FXML
     private Label platformMessageLabel;
+    @FXML
+    private Label platformCountLabel;
+    @FXML
+    private Label gameCountLabel;
 
     private DatabaseConnection dc = new DatabaseConnection();
 
@@ -82,9 +86,11 @@ public class LoggedInPageController {
     public void initialize() throws SQLException, IOException {
         userNameProfileLabel.setText(user.getUserName());
         dc.getConnection();
+        int a = getMostPostsGameID();
         displayAllUserPosts(dc.getProfID(user.getUserName()));
         gameMessageLabel.setText(dc.getGameTitle(getMostPostsGameID()));
         platformMessageLabel.setText(dc.getPlatformName(getMostPostsPlatformID()));
+        //gameCountLabel.setText(getGameCount();
     }
 
     public void displayAllUserPosts(int profileID) throws IOException, SQLException {
@@ -126,6 +132,29 @@ public class LoggedInPageController {
         }
         return a;
     }
+
+    @FXML
+    public int getGameCount(int gameID){
+        int a=0;
+        try{
+            a=dc.getGameIDCount(gameID);
+        } catch(Exception e){
+            e.printStackTrace();
+        }
+        return a;
+    }
+
+    @FXML
+    public int getPlatformCount(int platformID){
+        int a=0;
+        try{
+            a=dc.getPlatformIDCount(platformID);
+        } catch(Exception e){
+            e.printStackTrace();
+        }
+        return a;
+    }
+
 
 
 }

@@ -602,7 +602,37 @@ public class DatabaseConnection {
         return ans;
     }
 
+    public int getGameIDCount(int id) {
+        int ans = -1;
+        ResultSet result = null;
+        try {
+            Statement stmt = conn.createStatement();
+            result = stmt.executeQuery("SELECT COUNT(gameID) FROM Post WHERE gameID = \'" + id + "\'");
+            while (result.next()) {
+                ans = result.getInt("gameID");
+                System.out.println("gameID = " + ans);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return ans;
+    }
 
+    public int getPlatformIDCount(int id) {
+        int ans = -1;
+        ResultSet result = null;
+        try {
+            Statement stmt = conn.createStatement();
+            result = stmt.executeQuery("SELECT COUNT(platformID) FROM Post WHERE platformID = \'" + id + "\'");
+            while (result.next()) {
+                ans = result.getInt("platformID");
+                System.out.println("platformID = " + ans);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return ans;
+    }
 
 
     public static void main(String [] args) {
