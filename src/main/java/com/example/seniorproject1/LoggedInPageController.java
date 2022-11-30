@@ -90,7 +90,8 @@ public class LoggedInPageController {
         displayAllUserPosts(dc.getProfID(user.getUserName()));
         gameMessageLabel.setText(dc.getGameTitle(getMostPostsGameID()));
         platformMessageLabel.setText(dc.getPlatformName(getMostPostsPlatformID()));
-        //gameCountLabel.setText(getGameCount();
+        gameCountLabel.setText(String.valueOf(getGameCount(getMostPostsGameID())));
+        platformCountLabel.setText(String.valueOf(getPlatformCount(getMostPostsPlatformID())));
     }
 
     public void displayAllUserPosts(int profileID) throws IOException, SQLException {

@@ -591,7 +591,7 @@ public class DatabaseConnection {
         ResultSet result = null;
         try {
             Statement stmt = conn.createStatement();
-            result = stmt.executeQuery("SELECT platformType FROM Platform WHERE platformID = \'" + id + "\'");
+            result = stmt.executeQuery("SELECT platformType FROM Platform WHERE platformID = " + id);
             while (result.next()) {
                 ans = result.getString("platformType");
                 System.out.println("platformType = " + ans);
@@ -607,7 +607,7 @@ public class DatabaseConnection {
         ResultSet result = null;
         try {
             Statement stmt = conn.createStatement();
-            result = stmt.executeQuery("SELECT COUNT(gameID) FROM Post WHERE gameID = \'" + id + "\'");
+            result = stmt.executeQuery("SELECT COUNT(gameID) AS gameID FROM Post WHERE gameID = " + id);
             while (result.next()) {
                 ans = result.getInt("gameID");
                 System.out.println("gameID = " + ans);
@@ -623,7 +623,7 @@ public class DatabaseConnection {
         ResultSet result = null;
         try {
             Statement stmt = conn.createStatement();
-            result = stmt.executeQuery("SELECT COUNT(platformID) FROM Post WHERE platformID = \'" + id + "\'");
+            result = stmt.executeQuery("SELECT COUNT(platformID) AS platformID FROM Post WHERE platformID = " + id);
             while (result.next()) {
                 ans = result.getInt("platformID");
                 System.out.println("platformID = " + ans);
@@ -657,6 +657,7 @@ public class DatabaseConnection {
     int g = dc.getPlatformIDFromName("PlayStation");
     int h = dc.getGameIDFromName("OverWatch");
     ResultSet test3 = dc.getAllRatingFromPostByGame(1);
+    int i = dc.getGameIDCount(1);
 
 
     }

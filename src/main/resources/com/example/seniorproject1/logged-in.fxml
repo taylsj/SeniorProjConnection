@@ -48,9 +48,9 @@
       <Label layoutX="251.0" layoutY="427.0" prefHeight="17.0" prefWidth="130.0" text="Most Posted Platform:" />
       <Label fx:id="gameMessageLabel" layoutX="381.0" layoutY="400.0" prefHeight="17.0" prefWidth="169.0" text="Label" />
       <Label fx:id="platformMessageLabel" layoutX="381.0" layoutY="427.0" prefHeight="17.0" prefWidth="169.0" text="Label" />
-      <Label layoutX="426.0" layoutY="400.0" prefHeight="17.0" prefWidth="114.0" text="Number Of Posts: " />
-      <Label layoutX="426.0" layoutY="427.0" prefHeight="17.0" prefWidth="114.0" text="Number Of Posts: " />
-      <Label fx:id="gameCountLabel" layoutX="540.0" layoutY="400.0" prefHeight="17.0" prefWidth="169.0" text="Label" />
-      <Label fx:id="platformCountLabel" layoutX="540.0" layoutY="427.0" prefHeight="17.0" prefWidth="169.0" text="Label" />
+      <Label layoutX="502.0" layoutY="400.0" prefHeight="17.0" prefWidth="104.0" text="Number Of Posts: " />
+      <Label layoutX="502.0" layoutY="427.0" prefHeight="17.0" prefWidth="104.0" text="Number Of Posts: " />
+      <Label fx:id="gameCountLabel" layoutX="610.0" layoutY="400.0" prefHeight="17.0" prefWidth="169.0" text="Label" />
+      <Label fx:id="platformCountLabel" layoutX="610.0" layoutY="427.0" prefHeight="17.0" prefWidth="169.0" text="Label" />
    </children>
 </AnchorPane>
