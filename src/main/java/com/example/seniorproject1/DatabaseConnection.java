@@ -555,6 +555,53 @@ public class DatabaseConnection {
         return null;
     }
 
+    public int getMostPostsPlatformID() {
+        int ans = -1;
+        ResultSet result = null;
+        try {
+            Statement stmt = conn.createStatement();
+            result = stmt.executeQuery("SELECT TOP 1 PlatformID FROM Post GROUP BY PlatformID ORDER BY Count(PlatformID) DESC");
+            while (result.next()) {
+                ans = result.getInt("platformID");
+                System.out.println("platformID = " + ans);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return ans;
+    }
+    public int getMostPostsGameID() {
+        int ans = -1;
+        ResultSet result = null;
+        try {
+            Statement stmt = conn.createStatement();
+            result = stmt.executeQuery("SELECT TOP 1 GameID FROM Post GROUP BY GameID ORDER BY Count(GameID) DESC");
+            while (result.next()) {
+                ans = result.getInt("GameID");
+                System.out.println("GameID = " + ans);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return ans;
+    }
+
+    public String getPlatformName(int id) {
+        String ans = " ";
+        ResultSet result = null;
+        try {
+            Statement stmt = conn.createStatement();
+            result = stmt.executeQuery("SELECT platformType FROM Platform WHERE platformID = \'" + id + "\'");
+            while (result.next()) {
+                ans = result.getString("platformType");
+                System.out.println("platformType = " + ans);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return ans;
+    }
+
 
 
 

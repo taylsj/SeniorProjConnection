@@ -35,6 +35,10 @@ public class LoggedInPageController {
     private Label userNameProfileLabel;
     @FXML
     private ListView homePostListView;
+    @FXML
+    private Label gameMessageLabel;
+    @FXML
+    private Label platformMessageLabel;
 
     private DatabaseConnection dc = new DatabaseConnection();
 
@@ -79,8 +83,8 @@ public class LoggedInPageController {
         userNameProfileLabel.setText(user.getUserName());
         dc.getConnection();
         displayAllUserPosts(dc.getProfID(user.getUserName()));
-        //String temp = dc.getAboutMe(user.getUserName());
-        //aboutMeTextArea.setText(temp);
+        gameMessageLabel.setText(dc.getGameTitle(getMostPostsGameID()));
+        platformMessageLabel.setText(dc.getPlatformName(getMostPostsPlatformID()));
     }
 
     public void displayAllUserPosts(int profileID) throws IOException, SQLException {
@@ -99,6 +103,28 @@ public class LoggedInPageController {
 
 
 
+    }
+
+    @FXML
+    public int getMostPostsGameID() {
+        int a=0;
+        try{
+
+            a= dc.getMostPostsGameID();
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+        return a;
+    }
+    @FXML
+    public int getMostPostsPlatformID(){
+        int a=0;
+        try{
+            a=dc.getMostPostsPlatformID();
+        } catch(Exception e){
+            e.printStackTrace();
+        }
+        return a;
     }
 
 

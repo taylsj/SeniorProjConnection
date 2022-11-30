@@ -44,5 +44,9 @@
       </AnchorPane>
       <ListView fx:id="homePostListView" layoutX="244.0" layoutY="64.0" prefHeight="289.0" prefWidth="596.0" />
       <Label layoutX="265.0" layoutY="32.0" prefHeight="17.0" prefWidth="237.0" text="Your Posts:" />
+      <Label layoutX="251.0" layoutY="400.0" prefHeight="17.0" prefWidth="114.0" text="Most Posted Game:" />
+      <Label layoutX="251.0" layoutY="427.0" prefHeight="17.0" prefWidth="130.0" text="Most Posted Platform:" />
+      <Label fx:id="gameMessageLabel" layoutX="381.0" layoutY="400.0" prefHeight="17.0" prefWidth="169.0" text="Label" />
+      <Label fx:id="platformMessageLabel" layoutX="381.0" layoutY="427.0" prefHeight="17.0" prefWidth="169.0" text="Label" />
    </children>
 </AnchorPane>
