@@ -128,7 +128,7 @@ public class searchByRatingController {
     public void switchToSearchFilterOnAction(ActionEvent e) throws  Exception {
 
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("searchFilter.fxml"));
-        Scene window = new Scene(fxmlLoader.load(),851,638);
+        Scene window = new Scene(fxmlLoader.load(),982,723);
         Main.mainStage.setScene(window);
         Main.mainStage.show();
 

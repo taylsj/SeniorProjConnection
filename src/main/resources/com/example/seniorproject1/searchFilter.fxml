@@ -17,5 +17,9 @@
       <Button fx:id="backButton" layoutX="65.0" layoutY="408.0" mnemonicParsing="false" onAction="#switchToLoggedInOnAction" text="back" />
       <Button layoutX="63.0" layoutY="510.0" mnemonicParsing="false" onAction="#switchToRatingsSearchOnAction" text="Search" />
       <Label alignment="CENTER" layoutX="11.0" layoutY="484.0" prefHeight="17.0" prefWidth="150.0" text="Search User Ratings:" />
+      <Label alignment="CENTER" layoutX="11.0" layoutY="551.0" prefHeight="17.0" prefWidth="150.0" text="Search Favorite Platforms:" />
+      <Button layoutX="65.0" layoutY="576.0" mnemonicParsing="false" onAction="#switchToPlatSearch" text="Search" />
+      <Label alignment="CENTER" layoutX="16.0" layoutY="607.0" prefHeight="17.0" prefWidth="150.0" text="Search Favorite Games:" />
+      <Button layoutX="65.0" layoutY="632.0" mnemonicParsing="false" onAction="#switchToGameSearch" text="Search" />
    </children>
 </AnchorPane>

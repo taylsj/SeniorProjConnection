@@ -165,6 +165,24 @@ public class searchFilterController {
 
     }
 
+    public void switchToPlatSearch(ActionEvent e) throws  Exception {
 
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("platformSearchPage.fxml"));
+        Scene window = new Scene(fxmlLoader.load(),725, 500);
+        Main.mainStage.setScene(window);
+        Main.mainStage.show();
+
+
+    }
+
+    public void switchToGameSearch(ActionEvent e) throws  Exception {
+
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("favoriteGameSearch.fxml"));
+        Scene window = new Scene(fxmlLoader.load(),725, 500);
+        Main.mainStage.setScene(window);
+        Main.mainStage.show();
+
+
+    }
 
 }

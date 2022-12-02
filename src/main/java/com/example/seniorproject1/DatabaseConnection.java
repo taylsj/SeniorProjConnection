@@ -762,6 +762,37 @@ public class DatabaseConnection {
 
     }
 
+    public ResultSet getAllFromFavPlatByPlatform(int platformID) {
+        int ans = -1;
+        ResultSet result = null;
+        try {
+            Statement stmt = conn.createStatement();
+            result = stmt.executeQuery("SELECT * FROM FavoritePlatforms WHERE platformID = " + platformID);
+            //ResultSet x = result;
+            return result;
+            //return x;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public ResultSet getAllFromFavGameByGame(int gameID) {
+        int ans = -1;
+        ResultSet result = null;
+        try {
+            Statement stmt = conn.createStatement();
+            result = stmt.executeQuery("SELECT * FROM FavoriteGames WHERE gameID = " +gameID);
+            //ResultSet x = result;
+            return result;
+            //return x;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 
 
     public static void main(String [] args) {
