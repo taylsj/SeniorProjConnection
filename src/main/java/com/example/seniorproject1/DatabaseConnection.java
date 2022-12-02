@@ -1,15 +1,5 @@
 package com.example.seniorproject1;
 
-import javafx.event.ActionEvent;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.stage.Stage;
-
-import java.io.IOException;
-import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
 import java.sql.*;
 import java.util.logging.Level;
@@ -634,6 +624,145 @@ public class DatabaseConnection {
         return ans;
     }
 
+    public ResultSet getAllFromFavPlatformByProfileID(int id) {
+        int ans = -1;
+        ResultSet result = null;
+        try {
+            Statement stmt = conn.createStatement();
+            result = stmt.executeQuery("SELECT * FROM FavoritePlatforms WHERE profileID = " + id);
+            //ResultSet x = result;
+            return result;
+            //return x;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public ResultSet getAllFromFavGameByProfileID(int id) {
+        int ans = -1;
+        ResultSet result = null;
+        try {
+            Statement stmt = conn.createStatement();
+            result = stmt.executeQuery("SELECT * FROM FavoriteGames WHERE profileID = " + id);
+            //ResultSet x = result;
+            return result;
+            //return x;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public void insertFavoritesGame(int profileID, int gameID) {
+        //call the getConnectionDB method
+        //getConnectionDB();
+        System.out.println("insertFavoritesGame method running...");
+        String tableName = "FavoriteGames";
+        try {
+            String sql = "INSERT INTO " + tableName + " (ProfileID, GameID)  VALUES"
+                    + "(?, ?)";
+            //System.out.println("Prepared Statement = " + sql);
+            preparedStatement = conn.prepareStatement(sql);
+            preparedStatement.setInt(1, profileID);
+            preparedStatement.setInt(2, gameID);
+            //preparedStatement.setInt(3, platformID);
+            //preparedStatement.setString(4, );
+           //preparedStatement.setString(4, description);
+           //preparedStatement.setString(5, comment);
+            //preparedStatement.setString(6, profileName);
+            int row = preparedStatement.executeUpdate();
+            System.out.println("Prepared Statement = " + preparedStatement.toString());
+            if (row > 0) {
+                System.out.println("**NEW Post inserted into table");
+            }
+        } catch (SQLException e) {
+        }
+    }
+
+    public void insertFavoritesPlatform(int profileID, int platformID) {
+        //call the getConnectionDB method
+        //getConnectionDB();
+        System.out.println("insertFavoritesPlatform method running...");
+        String tableName = "FavoritePlatforms";
+        try {
+            String sql = "INSERT INTO " + tableName + " (profileID, platformID)  VALUES"
+                    + "(?, ?)";
+            //System.out.println("Prepared Statement = " + sql);
+            preparedStatement = conn.prepareStatement(sql);
+            preparedStatement.setInt(1, profileID);
+            preparedStatement.setInt(2, platformID);
+            //preparedStatement.setInt(3, platformID);
+            //preparedStatement.setString(4, );
+            //preparedStatement.setString(4, description);
+            //preparedStatement.setString(5, comment);
+            //preparedStatement.setString(6, profileName);
+            int row = preparedStatement.executeUpdate();
+            System.out.println("Prepared Statement = " + preparedStatement.toString());
+            if (row > 0) {
+                System.out.println("**NEW Post inserted into table");
+            }
+        } catch (SQLException e) {
+        }
+    }
+
+    public int existingGameInFav(int profID, int gameID) {
+
+        DatabaseConnection connectNow = new DatabaseConnection();
+        Connection connectDB = connectNow.getConnection();
+
+        String tableName = "FavoriteGames";
+        //int a = 0;
+        int pID = 0;
+        int gID = 0;
+
+        try {
+            Statement stmt = connectDB.createStatement();
+            ResultSet result = stmt.executeQuery("SELECT * FROM " + tableName + " WHERE profileID = " + profID + " AND gameID = " + gameID);
+
+            while (result.next()) {
+                //a = result.getInt("gameID");
+                pID = result.getInt("profileID");
+                gID = result.getInt("gameID");
+            }
+        } catch (SQLException except) {
+            except.printStackTrace();
+        }
+        //System.out.println("Boolean = " + gameID.equals(gID));
+        return gID;
+
+    }
+
+    public int existingPlatInFav(int profID, int platID) {
+
+        DatabaseConnection connectNow = new DatabaseConnection();
+        Connection connectDB = connectNow.getConnection();
+
+        String tableName = "FavoritePlatforms";
+        //int a = 0;
+        int pID = 0;
+        int gID = 0;
+
+        try {
+            Statement stmt = connectDB.createStatement();
+            ResultSet result = stmt.executeQuery("SELECT * FROM " + tableName + " WHERE profileID = " + profID + " AND platformID = " + platID);
+
+            while (result.next()) {
+                //a = result.getInt("gameID");
+                pID = result.getInt("profileID");
+                pID = result.getInt("platformID");
+            }
+        } catch (SQLException except) {
+            except.printStackTrace();
+        }
+        //System.out.println("Boolean = " + gameID.equals(gID));
+        return pID;
+
+    }
+
+
 
     public static void main(String [] args) {
     DatabaseConnection dc = new DatabaseConnection();
@@ -658,6 +787,9 @@ public class DatabaseConnection {
     int h = dc.getGameIDFromName("OverWatch");
     ResultSet test3 = dc.getAllRatingFromPostByGame(1);
     int i = dc.getGameIDCount(1);
+    //ResultSet test4 = dc.getAllFromFavByProfileID(12);
+    //System.out.println(test4);
+        int z = dc.existingGameInFav(12, 1);
 
 
     }

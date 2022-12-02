@@ -67,6 +67,8 @@ public class Controller  {
 
     @FXML
     private TextField tf_username;
+    @FXML
+    private Button forgotPassButton;
 
 
 
@@ -161,6 +163,8 @@ public class Controller  {
 
 
 
+
+
     public void loginLinkOnAction(ActionEvent e) throws Exception {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("login1.fxml"));
         Stage window = (Stage) loginLink.getScene().getWindow();
@@ -189,6 +193,16 @@ public class Controller  {
 
     }
 
+    @FXML
+    public void switchToForgotPassAction(ActionEvent e) throws  Exception {
+
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("forgotPasswordPage.fxml"));
+        Scene window = new Scene(fxmlLoader.load(),851,638);
+        Main.mainStage.setScene(window);
+        Main.mainStage.show();
+
+
+    }
 
 
 

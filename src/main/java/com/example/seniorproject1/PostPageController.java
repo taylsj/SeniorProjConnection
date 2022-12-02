@@ -129,16 +129,17 @@ public class PostPageController {
         String gameObj = getComboGame();
         int platform = dc.getPlatformIDFromName(platformObj);
         int game = dc.getGameIDFromName(gameObj);
+        if(platformObj != null && gameObj != null) {
+            try {
+                dc.insertPost(profileID, game, platform, descriptionTextArea.getText(), commentsTextArea.getText());
 
-        try {
-            dc.insertPost(profileID, game, platform, descriptionTextArea.getText(), commentsTextArea.getText());
-
-
-        } catch (Exception ex) {
-            ex.printStackTrace();
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+            confirmMessageLabel.setText("Post Added Successfully!");
+        }else {
+            confirmMessageLabel.setText("Please add a game and platform");
         }
-       confirmMessageLabel.setText("Post Added Successfully!");
-
 
 
 

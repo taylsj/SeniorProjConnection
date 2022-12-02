@@ -8,7 +8,7 @@
 
 <AnchorPane prefHeight="656.0" prefWidth="804.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.seniorproject1.PostPageController">
    <children>
-      <Label fx:id="confirmMessageLabel" layoutX="126.0" layoutY="540.0" prefHeight="17.0" prefWidth="248.0" text="Create Your Post..." />
+      <Label fx:id="confirmMessageLabel" layoutX="126.0" layoutY="540.0" prefHeight="17.0" prefWidth="377.0" text="Create Your Post..." />
       <ComboBox fx:id="platformComboBox" layoutX="161.0" layoutY="90.0" prefWidth="150.0" />
       <ComboBox fx:id="gameComboBox" layoutX="426.0" layoutY="90.0" prefWidth="150.0" />
       <Label layoutX="161.0" layoutY="64.0" prefHeight="17.0" prefWidth="140.0" text="Platform" />

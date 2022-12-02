@@ -104,6 +104,23 @@ public class profileController {
 
     }
 
+    public void switchToFavGame(ActionEvent e) throws  Exception {
+
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("favoritesPage.fxml"));
+        Scene window = new Scene(fxmlLoader.load(),600,400);
+        Main.mainStage.setScene(window);
+        Main.mainStage.show();
+
+
+
+    }
+    public void switchToPlatform(ActionEvent e) throws  Exception {
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("platformPage.fxml"));
+        Scene window = new Scene(fxmlLoader.load(),600,400);
+        Main.mainStage.setScene(window);
+        Main.mainStage.show();
+    }
+
 
 
 

@@ -23,7 +23,6 @@
                         <Font name="Arial Rounded MT Bold" size="12.0" />
                      </font>
                   </Label>
-                  <Button fx:id="editProfileButton" mnemonicParsing="false" prefHeight="30.0" prefWidth="105.0" style="-fx-background-color: #3357e8; -fx-cursor: hand;" text="Edit Profile" textFill="WHITE" />
                </children>
             </VBox>
             <VBox alignment="CENTER" prefHeight="375.0" prefWidth="320.0" spacing="40.0">
@@ -49,7 +48,7 @@
                               <Image url="@../images/gamecontroller.png" />
                            </image>
                         </ImageView>
-                        <Button fx:id="favoriteGamesButton" mnemonicParsing="false" prefHeight="39.0" prefWidth="169.0" style="-fx-background-color: transparent; -fx-cursor: hand;" text="Favorite Games" textFill="WHITE">
+                        <Button fx:id="favoriteGamesButton" mnemonicParsing="false" onAction="#switchToFavGame" prefHeight="39.0" prefWidth="169.0" style="-fx-background-color: transparent; -fx-cursor: hand;" text="Favorite Games" textFill="WHITE">
                            <font>
                               <Font size="18.0" />
                            </font>
@@ -63,7 +62,7 @@
                               <Image url="@../images/gameplatform.png" />
                            </image>
                         </ImageView>
-                        <Button fx:id="platformButton" mnemonicParsing="false" prefHeight="39.0" prefWidth="169.0" style="-fx-background-color: transparent; -fx-cursor: hand;" text="Platform" textFill="WHITE">
+                        <Button fx:id="platformButton" mnemonicParsing="false" onAction="#switchToPlatform" prefHeight="39.0" prefWidth="169.0" style="-fx-background-color: transparent; -fx-cursor: hand;" text="Platform" textFill="WHITE">
                            <font>
                               <Font size="18.0" />
                            </font>
