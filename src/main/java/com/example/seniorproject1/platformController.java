@@ -93,6 +93,23 @@ public class platformController {
         displayPlatforms(temp);
     }
 
+    @FXML
+    private void deleteButtonOnAction(ActionEvent e) {
+        String platformObj = getComboPlatform();
+        int profileID = dc.getProfID(user.getUserName());
+        int plat = dc.getPlatformIDFromName(platformObj);
+        int a = dc.existingPlatInFav(profileID, plat);
+        if (dc.existingPlatInFav(profileID, a) > 0) {
+            try {
+                dc.deleteFromFavPlatByProfile(profileID, plat);
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+            confirmMessageLabel.setText("Platform removed from profile");
+        } else {
+            confirmMessageLabel.setText("Can not remove platform");
+        }
+    }
 
 }
 

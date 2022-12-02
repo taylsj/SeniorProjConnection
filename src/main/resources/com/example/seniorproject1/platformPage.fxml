@@ -6,7 +6,6 @@
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.seniorproject1.platformController">
    <children>
       <Label layoutX="47.0" layoutY="36.0" prefHeight="17.0" prefWidth="213.0" text="Choose what platforms you play on!" />
@@ -18,5 +17,6 @@
       <Button layoutX="94.0" layoutY="240.0" mnemonicParsing="false" onAction="#refreshList" text="Refresh" />
       <Button layoutX="507.0" layoutY="344.0" mnemonicParsing="false" onAction="#switchToProfileOnAction" text="Back" />
       <Label fx:id="confirmMessageLabel" layoutX="47.0" layoutY="348.0" prefHeight="17.0" prefWidth="315.0" />
+      <Button layoutX="94.0" layoutY="275.0" mnemonicParsing="false" onAction="#deleteButtonOnAction" text="Remove" />
    </children>
 </AnchorPane>

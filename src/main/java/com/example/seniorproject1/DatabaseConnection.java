@@ -794,6 +794,29 @@ public class DatabaseConnection {
         return null;
     }
 
+    public void deleteFromFavGameByProfile(int profID, int gameID) {
+        //int ans = -1;
+        //ResultSet result = null;
+        try {
+            Statement stmt = conn.createStatement();
+            stmt.executeQuery("DELETE FROM FavoriteGames WHERE profileID = " + profID + " AND gameID = " + gameID);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void deleteFromFavPlatByProfile(int profID, int platID) {
+        //int ans = -1;
+        //ResultSet result = null;
+        try {
+            Statement stmt = conn.createStatement();
+            stmt.executeQuery("DELETE FROM FavoritePlatforms WHERE profileID = " + profID + " AND platformID = " + platID);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+
 
     public static void main(String [] args) {
     DatabaseConnection dc = new DatabaseConnection();

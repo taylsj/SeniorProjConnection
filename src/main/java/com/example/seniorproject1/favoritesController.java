@@ -47,7 +47,7 @@ public class favoritesController {
         int profileID = dc.getProfID(user.getUserName());
         int game = dc.getGameIDFromName(gameObj);
         int a = dc.existingGameInFav(profileID, game);
-        System.out.println(a);
+       // System.out.println(a);
         if(dc.existingGameInFav(profileID, a) < 1 ) {
              try {
             dc.insertFavoritesGame(profileID, game);
@@ -86,6 +86,24 @@ public class favoritesController {
 
 
 
+    }
+
+    @FXML
+    private void deleteButtonOnAction(ActionEvent e) {
+        String gameObj = getComboGame();
+        int profileID = dc.getProfID(user.getUserName());
+        int game = dc.getGameIDFromName(gameObj);
+        int a = dc.existingGameInFav(profileID, game);
+        if (dc.existingGameInFav(profileID, a) > 0) {
+            try {
+                dc.deleteFromFavGameByProfile(profileID, game);
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+            confirmMessageLabel.setText("Game removed from favorites");
+        } else {
+        confirmMessageLabel.setText("Can not remove game");
+        }
     }
 
 
