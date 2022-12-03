@@ -55,7 +55,12 @@ public class ratingsController {
         int temp5 = dc.getRatingStrategizing(user.getProfID());
         strategizingLabel.setText(String.valueOf(temp5));
 */
+        obsList.add("Leadership\t\t Concentration\t\t Communication\t\t MultiTasking\t\t Strategizing\t\tGame");
+        listViewRating.setItems(obsList);
         ResultSet result1 = dc.getRatingLeaderList(pID);
+        if(result1 == null){
+            return;
+        }
         ResultSet result2 = dc.getRatingConcentrationList(pID);
         ResultSet result3 = dc.getRatingCommunicationList(pID);
         ResultSet result4 = dc.getRatingMultiTaskingList(pID);
@@ -63,7 +68,7 @@ public class ratingsController {
         ResultSet result6 = dc.getGameID(pID);
 
 
-        obsList.add("Leadership\t\t Concentration\t\t Communication\t\t MultiTasking\t\t Strategizing\t\tGame");
+
         do {
             int LeaderRate = result1.getInt("Leadership");
             int ConcentrationRate = result2.getInt("Concentration");

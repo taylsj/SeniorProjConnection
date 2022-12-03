@@ -13,7 +13,8 @@ public class DatabaseConnection {
         //String databaseName = "SeniorProject";
         //String databaseUser = "CloudSA1799e7e9";
         //String databasePassword = "Password!";
-        String connectionStr = "jdbc:sqlserver://bcs430group1.database.windows.net:1433;database=SeniorProject;user=CloudSA1799e7e9@bcs430group1;password=Password!;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;";
+        //String connectionStr = "jdbc:sqlserver://bcs430group1.database.windows.net:1433;database=SeniorProject;user=CloudSA1799e7e9@bcs430group1;password=Password!;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;";
+        String connectionStr = "jdbc:ucanaccess://.//SeniorProjectDB.accdb";
         Connection temp = null;
         try {
             conn = DriverManager.getConnection(connectionStr);
@@ -799,7 +800,7 @@ public class DatabaseConnection {
         //ResultSet result = null;
         try {
             Statement stmt = conn.createStatement();
-            stmt.executeQuery("DELETE FROM FavoriteGames WHERE profileID = " + profID + " AND gameID = " + gameID);
+            stmt.executeUpdate("DELETE FROM FavoriteGames WHERE profileID = " + profID + " AND gameID = " + gameID);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -810,7 +811,7 @@ public class DatabaseConnection {
         //ResultSet result = null;
         try {
             Statement stmt = conn.createStatement();
-            stmt.executeQuery("DELETE FROM FavoritePlatforms WHERE profileID = " + profID + " AND platformID = " + platID);
+            stmt.executeUpdate("DELETE FROM FavoritePlatforms WHERE profileID = " + profID + " AND platformID = " + platID);
         } catch (Exception e) {
             e.printStackTrace();
         }
