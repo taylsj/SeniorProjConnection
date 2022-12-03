@@ -80,6 +80,14 @@ public class LoggedInPageController {
         Main.mainStage.show();
     }
 
+    @FXML
+    public void switchToRateUserAction(ActionEvent e) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("addUserRatingPage.fxml"));
+        Scene window = new Scene(fxmlLoader.load(),600,400);
+        Main.mainStage.setScene(window);
+        Main.mainStage.show();
+    }
+
 
 
     @FXML

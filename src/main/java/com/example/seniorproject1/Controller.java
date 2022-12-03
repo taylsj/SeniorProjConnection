@@ -249,7 +249,7 @@ public class Controller  {
                 ex.getCause();
             }
         } else {
-            System.out.println("UserName Already Exists. Enter New UserName");
+            registrationMessageLabel.setText("UserName Already Exists. Enter New UserName");
 
         }
 

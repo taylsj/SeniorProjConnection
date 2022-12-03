@@ -119,10 +119,10 @@ public class PostPageController {
     public void postButtonOnAction(ActionEvent e) {
 
 
-        DatabaseConnection connectNow = new DatabaseConnection();
-        Connection connectDB = connectNow.getConnection();
+        //DatabaseConnection connectNow = new DatabaseConnection();
+        //Connection connectDB = connectNow.getConnection();
 
-        int profileID = connectNow.getProfID(user.getUserName());
+        int profileID = dc.getProfID(user.getUserName());
         //String comments = commentsTextArea.getText();
         //String subject = descriptionTextArea.getText();
         String platformObj = getComboPlatform();

@@ -40,6 +40,11 @@
                   <Font name="System Bold" size="17.0" />
                </font>
             </Hyperlink>
+            <Button fx:id="switchToProfileButton1" layoutX="-1.0" layoutY="294.0" mnemonicParsing="false" onAction="#switchToRateUserAction" prefHeight="25.0" prefWidth="226.0" style="-fx-background-color: #702963;" text="Rate User" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
          </children>
       </AnchorPane>
       <ListView fx:id="homePostListView" layoutX="244.0" layoutY="64.0" prefHeight="289.0" prefWidth="596.0" />

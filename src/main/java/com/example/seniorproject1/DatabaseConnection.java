@@ -2,6 +2,7 @@ package com.example.seniorproject1;
 
 import java.sql.SQLException;
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -817,7 +818,82 @@ public class DatabaseConnection {
         }
     }
 
+    public ArrayList getAllUsers() {
+        int ans = -1;
+        ArrayList<String> list = new ArrayList<>();
+        ResultSet result = null;
+        try {
+            Statement stmt = conn.createStatement();
+            result = stmt.executeQuery("SELECT * FROM UserInfo;");
+            while(result.next()) {
+                list.add(result.getString("userName"));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
 
+   public void insertUserRating(int profID, int gameID, String leader, String com, String strat, String con, String multi ) {
+        //call the getConnectionDB method
+        //getConnectionDB();
+        System.out.println("insertUserRating method running...");
+        String tableName = "Post";
+        try {
+            String sql = "INSERT INTO " + tableName + " (profileID, gameID, Leadership, Communication, Strategizing, Concentration, Multitasking)  VALUES"
+                    + "(?, ?, ?, ?, ?, ?, ?)";
+            //System.out.println("Prepared Statement = " + sql);
+            preparedStatement = conn.prepareStatement(sql);
+            preparedStatement.setInt(1, profID);
+            preparedStatement.setInt(2, gameID);
+            preparedStatement.setString(3, leader);
+            preparedStatement.setString(4, com);
+            //preparedStatement.setString(4, );
+            preparedStatement.setString(5, strat);
+            preparedStatement.setString(6, con);
+            preparedStatement.setString(7, multi);
+
+            int row = preparedStatement.executeUpdate();
+            System.out.println("Prepared Statement = " + preparedStatement.toString());
+            if (row > 0) {
+                System.out.println("**NEW Rating inserted into Post table");
+            }
+        } catch (SQLException e) {
+        }
+    }
+
+
+    public ArrayList getAllGames() {
+        int ans = -1;
+        ArrayList<String> list = new ArrayList<>();
+        ResultSet result = null;
+        try {
+            Statement stmt = conn.createStatement();
+            result = stmt.executeQuery("SELECT * FROM Game;");
+            while(result.next()) {
+                list.add(result.getString("gameTitle"));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
+
+    public int getProfIDFromName(String pn) {
+        int ans = -1;
+        ResultSet result = null;
+        try {
+            Statement stmt = conn.createStatement();
+            result = stmt.executeQuery("SELECT profileID FROM ProfileInfo WHERE profileName = \'" + pn + "\'");
+            while (result.next()) {
+                ans = result.getInt("profileID");
+                System.out.println("profileID = " + ans);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return ans;
+    }
 
     public static void main(String [] args) {
     DatabaseConnection dc = new DatabaseConnection();
@@ -845,6 +921,7 @@ public class DatabaseConnection {
     //ResultSet test4 = dc.getAllFromFavByProfileID(12);
     //System.out.println(test4);
         int z = dc.existingGameInFav(12, 1);
+    int j = dc.getProfIDFromName("Mike1");
 
 
     }
