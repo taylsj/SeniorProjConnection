@@ -53,7 +53,7 @@ public class profileController {
     @FXML
     public void ratingButtonOnAction(ActionEvent e) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("ratingsPage.fxml"));
-        Scene window = new Scene(fxmlLoader.load(),1289,913);
+        Scene window = new Scene(fxmlLoader.load(),885,600);
         Main.mainStage.setScene(window);
         Main.mainStage.show();
     }

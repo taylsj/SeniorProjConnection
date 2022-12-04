@@ -155,7 +155,7 @@ public class PostPageController {
     }
 
     private void setUpComboGame() {
-        gameComboBox.getItems().addAll("Fifa 23", "OverWatch", "Grand Theft Auto V", "Mario Kart 8");
+        gameComboBox.getItems().addAll(dc.getAllGames());
     }
 
     private String getComboGame() {

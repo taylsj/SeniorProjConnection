@@ -61,7 +61,7 @@ public class favoritesController {
     }
 
     private void setUpComboGame() {
-        gameListComboBox.getItems().addAll("Fifa 23", "OverWatch", "Grand Theft Auto V", "Mario Kart 8");
+        gameListComboBox.getItems().addAll(dc.getAllGames());
     }
 
     private String getComboGame() {
