@@ -212,48 +212,43 @@ public class Controller  {
 
         // Check to see if the passwords match
         if (tf_password.getText().equals(tf_password1.getText())) {
-            loginMessageLabel1.setText("");
+            if (!existingUser(tf_username.getText())) {
+
+                System.out.println("User Added");
+
+
+                DatabaseConnection connectNow = new DatabaseConnection();
+                Connection connectDB = connectNow.getConnection();
+
+                String firstname = tf_firstname.getText();
+                String lastname = tf_lastname.getText();
+                String email = tf_email.getText();
+                String username = tf_username.getText();
+                String password = tf_password.getText();
+
+                String insertFields = "INSERT INTO UserInfo (lastName, firstName, email, userName, userPass) VALUES ('";
+                String insertValues = firstname + "','" + lastname + "','" + email + "','" + username + "','" + password + "')";
+                String insertToRegister = insertFields + insertValues;
+
+
+                try {
+                    Statement statement = connectDB.createStatement();
+                    statement.executeUpdate(insertToRegister);
+
+                    registrationMessageLabel.setText("User registered successfully!");
+                    int userID = connectNow.getUserID(username);
+                    //game and platform id always set to 5 since they are empty fields in the database tables
+                    connectNow.insertProfile(userID, 0, 0, " ", " ", 0, username);
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                    ex.getCause();
+                }
+            } else {
+                registrationMessageLabel.setText("UserName Already Exists. Enter New UserName");
+            }
         } else {
             loginMessageLabel1.setText("Password does not match !");
         }
-
-        if (!existingUser(tf_username.getText())) {
-
-            System.out.println("User Added");
-
-
-            DatabaseConnection connectNow = new DatabaseConnection();
-            Connection connectDB = connectNow.getConnection();
-
-            String firstname = tf_firstname.getText();
-            String lastname = tf_lastname.getText();
-            String email = tf_email.getText();
-            String username = tf_username.getText();
-            String password = tf_password.getText();
-
-            String insertFields = "INSERT INTO UserInfo (lastName, firstName, email, userName, userPass) VALUES ('";
-            String insertValues = firstname + "','" + lastname + "','" + email + "','" + username + "','" + password + "')";
-            String insertToRegister = insertFields + insertValues;
-
-
-            try {
-                Statement statement = connectDB.createStatement();
-                statement.executeUpdate(insertToRegister);
-
-                registrationMessageLabel.setText("User registered successfully!");
-                int userID = connectNow.getUserID(username);
-                //game and platform id always set to 5 since they are empty fields in the database tables
-                connectNow.insertProfile(userID, 0, 0, " ", " ", 0, username);
-            } catch (Exception ex) {
-                ex.printStackTrace();
-                ex.getCause();
-            }
-        } else {
-            registrationMessageLabel.setText("UserName Already Exists. Enter New UserName");
-
-        }
-
-
     }
 
     public boolean existingUser(String userName) {
