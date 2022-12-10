@@ -91,6 +91,10 @@ public class searchFilterController {
     }
 
     @FXML
+    public void clearList() throws SQLException {
+        obsList.clear();
+    }
+    @FXML
     public void displayAllList() throws SQLException {
         ResultSet result = dc.getAllFromPost();
         obsList.add("\t\tDescription\t--\t Comments\t--\t User\t--\tGame");
