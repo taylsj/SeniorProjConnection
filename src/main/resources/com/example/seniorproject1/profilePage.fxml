@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="913.0" prefWidth="1289.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.seniorproject1.profileController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="913.0" prefWidth="1289.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.seniorproject1.profileController">
    <left>
       <VBox prefHeight="913.0" prefWidth="320.0" style="-fx-background-color: #263F73;" BorderPane.alignment="CENTER">
          <children>
@@ -20,7 +20,7 @@
                <children>
                   <Label fx:id="userNameLabel" alignment="CENTER" contentDisplay="TOP" prefHeight="17.0" prefWidth="293.0" text="UserName" textFill="WHITE">
                      <font>
-                        <Font name="Arial Rounded MT Bold" size="12.0" />
+                        <Font name="Arial Rounded MT Bold" size="24.0" />
                      </font>
                   </Label>
                </children>
@@ -113,10 +113,13 @@
                   </HBox>
                </children>
             </VBox>
-            <Button mnemonicParsing="false" onAction="#switchToLoggedInOnAction" style="-fx-cursor: hand;" text="Home">
+            <Button mnemonicParsing="false" onAction="#switchToLoggedInOnAction" style="-fx-cursor: hand; -fx-background-color: transparent;" text="Home" textFill="WHITE">
                <VBox.margin>
                   <Insets left="130.0" top="100.0" />
                </VBox.margin>
+               <font>
+                  <Font size="18.0" />
+               </font>
             </Button>
          </children>
       </VBox>
