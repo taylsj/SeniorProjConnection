@@ -4,13 +4,19 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane prefHeight="500.0" prefWidth="725.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.seniorproject1.favoriteGameSearchController">
+<AnchorPane prefHeight="500.0" prefWidth="725.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.seniorproject1.favoriteGameSearchController">
    <children>
-      <Label layoutX="60.0" layoutY="43.0" prefHeight="17.0" prefWidth="185.0" text="Search For Others Favorite Games" />
-      <Label layoutX="116.0" layoutY="118.0" text="Games:" />
+      <ImageView fitHeight="574.0" fitWidth="890.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@favoriteGameSearchImage.gif" />
+         </image>
+      </ImageView>
+      <Label layoutX="60.0" layoutY="43.0" prefHeight="17.0" prefWidth="185.0" text="Search For Others Favorite Games" textFill="WHITE" />
+      <Label layoutX="116.0" layoutY="118.0" text="Games:" textFill="WHITE" />
       <ComboBox fx:id="gameComboBox" layoutX="60.0" layoutY="141.0" prefWidth="150.0" />
       <ListView fx:id="gameListView" layoutX="268.0" layoutY="77.0" prefHeight="338.0" prefWidth="414.0" />
       <Button layoutX="618.0" layoutY="446.0" mnemonicParsing="false" onAction="#switchToSearchFilterOnAction" text="Back" />

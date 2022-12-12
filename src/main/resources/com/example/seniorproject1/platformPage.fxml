@@ -4,19 +4,39 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.seniorproject1.platformController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.seniorproject1.platformController">
    <children>
-      <Label layoutX="47.0" layoutY="36.0" prefHeight="17.0" prefWidth="213.0" text="Choose what platforms you play on!" />
+      <ImageView fitHeight="508.0" fitWidth="820.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@PlatformPageImage.gif" />
+         </image>
+      </ImageView>
+      <Label layoutX="47.0" layoutY="36.0" prefHeight="17.0" prefWidth="213.0" text="Choose what platforms you play on!">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
       <ListView fx:id="platformListView" layoutX="244.0" layoutY="135.0" prefHeight="130.0" prefWidth="301.0" />
-      <Label layoutX="246.0" layoutY="110.0" prefHeight="17.0" prefWidth="112.0" text="Your platforms:" />
+      <Label layoutX="246.0" layoutY="110.0" prefHeight="17.0" prefWidth="112.0" text="Your platforms:">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
       <ComboBox fx:id="platformComboBox" layoutX="47.0" layoutY="148.0" prefWidth="150.0" />
-      <Label layoutX="47.0" layoutY="119.0" prefHeight="17.0" prefWidth="106.0" text="Platforms:" />
+      <Label layoutX="47.0" layoutY="119.0" prefHeight="17.0" prefWidth="106.0" text="Platforms:" textFill="#aec276">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font></Label>
       <Button layoutX="103.0" layoutY="200.0" mnemonicParsing="false" onAction="#addButtonPressOnAction" text="Add" />
       <Button layoutX="94.0" layoutY="240.0" mnemonicParsing="false" onAction="#refreshList" text="Refresh" />
       <Button layoutX="507.0" layoutY="344.0" mnemonicParsing="false" onAction="#switchToProfileOnAction" text="Back" />
-      <Label fx:id="confirmMessageLabel" layoutX="47.0" layoutY="348.0" prefHeight="17.0" prefWidth="315.0" />
+      <Label fx:id="confirmMessageLabel" layoutX="47.0" layoutY="348.0" prefHeight="17.0" prefWidth="315.0" textFill="RED">
+         <font>
+            <Font name="System Bold" size="23.0" />
+         </font></Label>
       <Button layoutX="94.0" layoutY="275.0" mnemonicParsing="false" onAction="#deleteButtonOnAction" text="Remove" />
    </children>
 </AnchorPane>

@@ -4,17 +4,28 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="656.0" prefWidth="804.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.seniorproject1.PostPageController">
+<AnchorPane prefHeight="656.0" prefWidth="804.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.seniorproject1.PostPageController">
    <children>
-      <Label fx:id="confirmMessageLabel" layoutX="126.0" layoutY="540.0" prefHeight="17.0" prefWidth="377.0" text="Create Your Post..." />
+      <ImageView fitHeight="802.0" fitWidth="889.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@postPageImage.gif" />
+         </image>
+      </ImageView>
+      <Label fx:id="confirmMessageLabel" layoutX="126.0" layoutY="540.0" prefHeight="17.0" prefWidth="452.0" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
       <ComboBox fx:id="platformComboBox" layoutX="161.0" layoutY="90.0" prefWidth="150.0" />
       <ComboBox fx:id="gameComboBox" layoutX="426.0" layoutY="90.0" prefWidth="150.0" />
-      <Label layoutX="161.0" layoutY="64.0" prefHeight="17.0" prefWidth="140.0" text="Platform" />
-      <Label layoutX="431.0" layoutY="64.0" prefHeight="17.0" prefWidth="140.0" text="Game" />
-      <Label layoutX="126.0" layoutY="183.0" prefHeight="17.0" prefWidth="140.0" text="Description" />
-      <Label layoutX="126.0" layoutY="337.0" prefHeight="17.0" prefWidth="140.0" text="Comments" />
+      <Label layoutX="161.0" layoutY="64.0" prefHeight="17.0" prefWidth="140.0" text="Platform" textFill="WHITE" />
+      <Label layoutX="431.0" layoutY="64.0" prefHeight="17.0" prefWidth="140.0" text="Game" textFill="WHITE" />
+      <Label layoutX="126.0" layoutY="183.0" prefHeight="17.0" prefWidth="140.0" text="Description" textFill="WHITE" />
+      <Label layoutX="126.0" layoutY="337.0" prefHeight="17.0" prefWidth="140.0" text="Comments" textFill="WHITE" />
       <Button fx:id="postButton" layoutX="157.0" layoutY="494.0" mnemonicParsing="false" onAction="#postButtonOnAction" text="Post" />
       <Button fx:id="switchToHomeButton" layoutX="696.0" layoutY="536.0" mnemonicParsing="false" onAction="#switchToLoggedInOnAction" text="Back" />
       <TextArea fx:id="descriptionTextArea" layoutX="131.0" layoutY="214.0" prefHeight="99.0" prefWidth="556.0" />

@@ -4,16 +4,22 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane prefHeight="500.0" prefWidth="725.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.seniorproject1.platformSearchController">
+<AnchorPane prefHeight="500.0" prefWidth="725.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.seniorproject1.platformSearchController">
    <children>
-      <Label layoutX="62.0" layoutY="31.0" prefHeight="17.0" prefWidth="196.0" text="Search for players on Platforms" />
+      <ImageView fitHeight="580.0" fitWidth="760.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@platformSearchPageImage.gif" />
+         </image>
+      </ImageView>
+      <Label layoutX="62.0" layoutY="31.0" prefHeight="17.0" prefWidth="196.0" text="Search for players on Platforms" textFill="WHITE" />
       <ComboBox fx:id="platformComboBox" layoutX="62.0" layoutY="155.0" prefWidth="150.0" />
       <ListView fx:id="platformListView" layoutX="258.0" layoutY="67.0" prefHeight="338.0" prefWidth="414.0" />
       <Button layoutX="612.0" layoutY="435.0" mnemonicParsing="false" onAction="#switchToSearchFilterOnAction" text="Back" />
-      <Label layoutX="111.0" layoutY="126.0" prefHeight="17.0" prefWidth="86.0" text="Platforms:" />
+      <Label layoutX="111.0" layoutY="126.0" prefHeight="17.0" prefWidth="86.0" text="Platforms:" textFill="WHITE" />
       <Button layoutX="116.0" layoutY="211.0" mnemonicParsing="false" onAction="#clearList" text="Clear" />
    </children>
 </AnchorPane>
